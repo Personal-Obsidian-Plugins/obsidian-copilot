@@ -95,6 +95,8 @@ export interface CopilotSettings {
   enableHybridRRFScoring: boolean;
   /** Canonical tag prefixes (e.g., '#economics/industrial-organization') to include in graph indexing */
   graphIncludedTagPrefixes: string[];
+  /** Index the entire tag corpus without filtering to specific prefixes */
+  graphIndexAllTags: boolean;
   /** Include wiki-links when building the graph vector store */
   graphIncludeWikiLinks: boolean;
   /** Include embedded notes/files when building the graph vector store */

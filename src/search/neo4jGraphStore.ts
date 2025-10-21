@@ -27,6 +27,8 @@ export interface GraphStoreRuntimeOptions {
   enabled: boolean;
   /** Canonical tag prefixes that are eligible for graph ingestion. */
   includedTagPrefixes: string[];
+  /** Whether to bypass tag filtering and index all tags. */
+  indexAllTags: boolean;
   /** Whether wiki-links should be ingested. */
   includeWikiLinks: boolean;
   /** Whether embeds should be ingested. */
@@ -61,6 +63,7 @@ export function buildGraphOptionsFromSettings(settings: CopilotSettings): GraphS
   return {
     enabled: settings.enableGraphVectorStore,
     includedTagPrefixes: settings.graphIncludedTagPrefixes,
+    indexAllTags: settings.graphIndexAllTags,
     includeWikiLinks: settings.graphIncludeWikiLinks,
     includeEmbeds: settings.graphIncludeEmbeds,
   };
@@ -75,9 +78,10 @@ export function buildGraphOptionsFromSettings(settings: CopilotSettings): GraphS
  */
 export function filterTagsByPrefixes(
   tags: NormalizedTagPath[],
-  includedPrefixes: string[]
+  includedPrefixes: string[],
+  indexAll: boolean
 ): NormalizedTagPath[] {
-  if (includedPrefixes.length === 0) {
+  if (indexAll || includedPrefixes.length === 0) {
     return tags;
   }
 
@@ -173,7 +177,11 @@ export class Neo4jGraphStore {
       return;
     }
 
-    const tagsForGraph = filterTagsByPrefixes(note.tags, options.includedTagPrefixes);
+    const tagsForGraph = filterTagsByPrefixes(
+      note.tags,
+      options.includedTagPrefixes,
+      options.indexAllTags
+    );
     const session = this.openSession();
 
     try {

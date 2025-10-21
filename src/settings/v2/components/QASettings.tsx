@@ -1,4 +1,5 @@
 import { PatternMatchingModal } from "@/components/modals/PatternMatchingModal";
+import { GraphTagManagerModal } from "@/components/modals/GraphTagManagerModal";
 import { RebuildIndexConfirmModal } from "@/components/modals/RebuildIndexConfirmModal";
 import { SemanticSearchToggleModal } from "@/components/modals/SemanticSearchToggleModal";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,19 @@ import React from "react";
 
 export const QASettings: React.FC = () => {
   const settings = useSettingsValue();
+  const graphSettingsDisabled = !settings.enableGraphVectorStore;
+
+  const handleGraphTagManager = () => {
+    new GraphTagManagerModal(app, {
+      initialTags: settings.graphIncludedTagPrefixes,
+      indexAllTags: settings.graphIndexAllTags,
+      onSave: ({ tags, indexAllTags }) => {
+        updateSetting("graphIncludedTagPrefixes", tags);
+        updateSetting("graphIndexAllTags", indexAllTags);
+        new Notice("Graph tag preferences updated. Reindex to apply changes.");
+      },
+    }).open();
+  };
 
   const handleSetDefaultEmbeddingModel = async (modelKey: string) => {
     if (modelKey === settings.embeddingModelKey) return;
@@ -253,6 +267,81 @@ export const QASettings: React.FC = () => {
             checked={settings.enableLexicalBoosts}
             onCheckedChange={(checked) => updateSetting("enableLexicalBoosts", checked)}
           />
+
+          <div className="tw-pt-4 tw-text-xl tw-font-semibold">Graph Retrieval (beta)</div>
+
+          <SettingItem
+            type="switch"
+            title="Enable Graph Vector Store"
+            description="Builds a local Neo4j graph using tags and wiki-links to enhance retrieval quality. Requires a vault reindex when toggled."
+            checked={settings.enableGraphVectorStore}
+            onCheckedChange={(checked) => {
+              updateSetting("enableGraphVectorStore", checked);
+              new Notice(
+                checked
+                  ? "Graph vector store enabled. Run a vault reindex to build the graph."
+                  : "Graph vector store disabled. Existing graph data will no longer be used."
+              );
+            }}
+          />
+
+          <SettingItem
+            type="switch"
+            title="Enable Hybrid RRF Scoring"
+            description="Combine graph-based results with dense embeddings using reciprocal rank fusion. When disabled, results rely solely on dense vectors."
+            checked={settings.enableHybridRRFScoring}
+            onCheckedChange={(checked) => updateSetting("enableHybridRRFScoring", checked)}
+            disabled={graphSettingsDisabled}
+          />
+
+          <SettingItem
+            type="switch"
+            title="Index Wiki Links"
+            description="Capture [[wikilinks]] between notes and surface related content during retrieval."
+            checked={settings.graphIncludeWikiLinks}
+            onCheckedChange={(checked) => updateSetting("graphIncludeWikiLinks", checked)}
+            disabled={graphSettingsDisabled}
+          />
+
+          <SettingItem
+            type="switch"
+            title="Index Embeds"
+            description="Include embedded notes and other resources as graph relationships."
+            checked={settings.graphIncludeEmbeds}
+            onCheckedChange={(checked) => updateSetting("graphIncludeEmbeds", checked)}
+            disabled={graphSettingsDisabled}
+          />
+
+          <SettingItem
+            type="slider"
+            title="Graph Traversal Depth"
+            description="Maximum hop distance used when expanding graph neighbourhoods during retrieval."
+            min={1}
+            max={4}
+            step={1}
+            value={settings.graphTraversalMaxDepth}
+            onChange={(value) => updateSetting("graphTraversalMaxDepth", value)}
+            disabled={graphSettingsDisabled}
+          />
+
+          <SettingItem
+            type="custom"
+            title="Manage Graph Tags"
+            description={
+              settings.graphIndexAllTags
+                ? "All tags are currently indexed. Open the manager to curate specific prefixes."
+                : `${settings.graphIncludedTagPrefixes.length} tag prefix(es) selected.`
+            }
+            disabled={graphSettingsDisabled}
+          >
+            <Button
+              variant="secondary"
+              onClick={handleGraphTagManager}
+              disabled={graphSettingsDisabled}
+            >
+              Open Tag Manager
+            </Button>
+          </SettingItem>
 
           {/* Exclusions */}
           <SettingItem

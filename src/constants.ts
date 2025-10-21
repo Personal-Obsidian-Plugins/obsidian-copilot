@@ -759,6 +759,7 @@ export const DEFAULT_SETTINGS: CopilotSettings = {
   enableGraphVectorStore: true,
   enableHybridRRFScoring: true,
   graphIncludedTagPrefixes: [],
+  graphIndexAllTags: true,
   graphIncludeWikiLinks: true,
   graphIncludeEmbeds: true,
   graphTraversalMaxDepth: 2,

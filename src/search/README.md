@@ -42,10 +42,16 @@
 
 ### Tag Settings & Suggestions
 
-- Add a dedicated modal where users manage the list of tags included in graph indexing. The modal provides inline completion as users type paths (typing `#economics/` suggests known continuations such as `industrial-organization`, `econometrics`, etc.) while treating each full path as a single tag.
-- Source suggestions from the vault's existing tag index plus recently indexed tag paths in the Chroma metadata. Suggestions respect hierarchy separators (`/`) and allow quick selection or creation of deeper levels.
+- Add a dedicated **Graph Tag Manager** modal surfaced from QA settings. Users can:
+  - Open the modal to review currently indexed tag prefixes, shown as removable chips.
+  - Type in an input field that supports inline completion (typing `#economics/` suggests continuations such as `industrial-organization`, `econometrics`, etc.). Each confirmed value persists as a single canonical tag path.
+  - Toggle "Index all tags" to bypass manual curation when desired.
+- Suggestions are sourced from:
+  - Obsidian's metadata cache (global tag index) for immediate vault coverage.
+  - Recently ingested tag paths stored in Chroma metadata, enabling discovery of new prefixes without reindexing.
+- Validation rules treat the full `#level1/level2` string as a single tag; hierarchy helpers are only exposed internally for prefix matching.
 - Persist the managed list to settings so ingestion can constrain graph creation to approved tags while keeping the option to include "all tags".
-- Display preview chips of selected tags and allow quick removal; include validation for malformed tag paths.
+- When the modal closes, settings immediately sync to the ingestion orchestrator so subsequent file events respect the updated whitelist.
 
 ### Link Awareness & Retrieval Boosting
 
@@ -53,6 +59,7 @@
 - Upsert `(:Note)-[:LINKS_TO]->(:Note)` edges (plus optional `EMBEDS` or `MENTIONS` when the source is an embed or block reference) so graph traversal can surface neighbourhood notes common in Zettelkasten workflows.
 - Cache link-degree statistics (out-links, in-links, mutual links) in Chroma metadata to let the hybrid retriever bias toward highly connected atomic notes.
 - Provide settings toggles for including wiki-links and embeds in the graph, along with depth limits for traversal-heavy features.
+- Surface these toggles alongside the tag manager entry point within QA settings. Each toggle triggers a rebuild prompt where necessary (e.g., enabling wiki-link ingestion requests a graph reindex to populate link edges).
 
 ## Data Flow
 
@@ -110,4 +117,4 @@ Dense embeddings              Tag + hierarchy graph
 - [ ] Build Chroma adapter with persistence, GC, and settings-aware initialization.
 - [ ] Build Neo4j graph writer, schema bootstrapper, and tests against a local driver instance.
 - [ ] Implement hybrid retriever with RRF scoring, link-degree weighting, and configuration toggles.
-- [ ] Update commands, settings UI, and docs to reflect the new architecture, link ingestion toggles, and rebuild paths.
+- [ ] Update commands, settings UI, and docs to reflect the new architecture, tag manager modal, link ingestion toggles, and rebuild paths.
