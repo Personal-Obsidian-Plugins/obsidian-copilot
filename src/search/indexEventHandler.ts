@@ -137,6 +137,7 @@ export class IndexEventHandler {
     }
     if (file instanceof TFile) {
       await this.dbOps.removeDocs(file.path);
+      await this.indexOps.removeNoteFromGraph(file.path);
     }
   };
 

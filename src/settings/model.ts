@@ -103,6 +103,16 @@ export interface CopilotSettings {
   graphIncludeEmbeds: boolean;
   /** Maximum traversal depth used by graph-based retrievers */
   graphTraversalMaxDepth: number;
+  /** Connection URI for the user-managed Neo4j instance */
+  graphNeo4jUri: string;
+  /** Username for connecting to the Neo4j instance */
+  graphNeo4jUsername: string;
+  /** Password for connecting to the Neo4j instance */
+  graphNeo4jPassword: string;
+  /** Optional Neo4j database name (blank uses default) */
+  graphNeo4jDatabase: string;
+  /** Whether to enable driver-level encryption (disable for local Desktop instances) */
+  graphNeo4jUseEncryption: boolean;
   enableIndexSync: boolean;
   debug: boolean;
   enableEncryption: boolean;

@@ -27,7 +27,8 @@
    - Builds a property graph where notes and tag paths are primary nodes, with optional helper nodes representing hierarchy segments purely for parent-child relationships (they are not treated as independent tags).
    - Adds `LINKS_TO`, `EMBEDS`, and `MENTIONS` edges to model wiki-links, embeds, and other cross-note references so Zettelkasten clusters surface naturally.
    - Implements a lean, tag-focused schema maintained in-house; frontmatter properties can be toggled in a later phase.
-   - Powered by the `neo4j-driver` packaged with the plugin; runs against a local Neo4j instance started by the user or embedded (TBD).
+   - Powered by the `neo4j-driver` packaged with the plugin; runs against a user-managed Neo4j Desktop instance reachable at `bolt://localhost:7687` (or a custom URI supplied via settings).
+   - Connection settings live alongside graph toggles and include an inline health check so users can confirm the Desktop database is online before building the graph.
 
 4. **LangChain Hybrid Retriever**
 
@@ -36,7 +37,7 @@
    - Honors user settings to disable the graph store and/or RRF, gracefully degrading to plain dense retrieval.
 
 5. **Settings & UX**
-   - New settings panel controls graph indexing (enable/disable), Neo4j connection details, and optional metadata inclusion.
+   - New settings panel controls graph indexing (enable/disable), Neo4j connection details, and optional metadata inclusion, plus a one-click connectivity test for the user-managed instance.
    - Default configuration keeps graph indexing + RRF enabled to deliver best recall.
    - Provides reindex buttons for Chroma-only or hybrid rebuilds, along with status indicators for each store.
 
@@ -115,6 +116,6 @@ Dense embeddings              Tag + hierarchy graph
 - [ ] Abstract existing file watchers to feed the ingestion orchestrator.
 - [ ] Implement metadata normalization shared between stores.
 - [ ] Build Chroma adapter with persistence, GC, and settings-aware initialization.
-- [ ] Build Neo4j graph writer, schema bootstrapper, and tests against a local driver instance.
+- [x] Build Neo4j graph writer, schema bootstrapper, and tests against a local driver instance.
 - [ ] Implement hybrid retriever with RRF scoring, link-degree weighting, and configuration toggles.
-- [ ] Update commands, settings UI, and docs to reflect the new architecture, tag manager modal, link ingestion toggles, and rebuild paths.
+- [x] Update commands, settings UI, and docs to reflect the new architecture, tag manager modal, link ingestion toggles, and rebuild paths.

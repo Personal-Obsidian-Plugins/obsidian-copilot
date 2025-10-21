@@ -9,11 +9,13 @@ import { HelpTooltip } from "@/components/ui/help-tooltip";
 import { VAULT_VECTOR_STORE_STRATEGIES } from "@/constants";
 import { getModelKeyFromModel, updateSetting, useSettingsValue } from "@/settings/model";
 import { Notice } from "obsidian";
-import React from "react";
+import React, { useState } from "react";
+import { buildGraphConnectionConfigFromSettings, Neo4jGraphStore } from "@/search/neo4jGraphStore";
 
 export const QASettings: React.FC = () => {
   const settings = useSettingsValue();
   const graphSettingsDisabled = !settings.enableGraphVectorStore;
+  const [isTestingGraphConnection, setIsTestingGraphConnection] = useState(false);
 
   const handleGraphTagManager = () => {
     new GraphTagManagerModal(app, {
@@ -48,6 +50,23 @@ export const QASettings: React.FC = () => {
   // Partitions are automatically managed in v3 (150MB per JSONL partition).
   // Remove UI control; keep handler stub to avoid accidental usage.
   // const handlePartitionsChange = (_value: string) => {};
+
+  const handleTestNeo4jConnection = async () => {
+    setIsTestingGraphConnection(true);
+    const graphStore = new Neo4jGraphStore();
+
+    try {
+      const connection = buildGraphConnectionConfigFromSettings(settings);
+      await graphStore.verifyConnection(connection);
+      new Notice("Successfully connected to Neo4j. The Desktop-managed instance responded.");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unknown error";
+      new Notice(`Neo4j connection failed: ${message}`);
+    } finally {
+      await graphStore.shutdown();
+      setIsTestingGraphConnection(false);
+    }
+  };
 
   return (
     <div className="tw-space-y-4">
@@ -293,6 +312,64 @@ export const QASettings: React.FC = () => {
             onCheckedChange={(checked) => updateSetting("enableHybridRRFScoring", checked)}
             disabled={graphSettingsDisabled}
           />
+
+          <SettingItem
+            type="text"
+            title="Neo4j Connection URI"
+            description="Bolt or Neo4j+SRV address for your Desktop-managed Neo4j instance."
+            value={settings.graphNeo4jUri}
+            onChange={(value) => updateSetting("graphNeo4jUri", value)}
+            placeholder="bolt://localhost:7687"
+          />
+
+          <SettingItem
+            type="text"
+            title="Neo4j Username"
+            description="Username configured in Neo4j Desktop. The default user is usually 'neo4j'."
+            value={settings.graphNeo4jUsername}
+            onChange={(value) => updateSetting("graphNeo4jUsername", value)}
+            placeholder="neo4j"
+          />
+
+          <SettingItem
+            type="password"
+            title="Neo4j Password"
+            description="Password generated or configured for the Desktop database. Stored locally within Obsidian settings."
+            value={settings.graphNeo4jPassword}
+            onChange={(value) => updateSetting("graphNeo4jPassword", value)}
+            placeholder="••••••••"
+          />
+
+          <SettingItem
+            type="text"
+            title="Neo4j Database (optional)"
+            description="Name of the Neo4j database to target. Leave blank to use the default database."
+            value={settings.graphNeo4jDatabase}
+            onChange={(value) => updateSetting("graphNeo4jDatabase", value)}
+            placeholder="neo4j"
+          />
+
+          <SettingItem
+            type="switch"
+            title="Use Encryption"
+            description="Enable when connecting to a remote Neo4j server that requires TLS. Leave disabled for Neo4j Desktop."
+            checked={settings.graphNeo4jUseEncryption}
+            onCheckedChange={(checked) => updateSetting("graphNeo4jUseEncryption", checked)}
+          />
+
+          <SettingItem
+            type="custom"
+            title="Connection Health Check"
+            description="Verify that the plugin can reach the configured Neo4j instance before running a reindex."
+          >
+            <Button
+              variant="secondary"
+              onClick={handleTestNeo4jConnection}
+              disabled={isTestingGraphConnection}
+            >
+              {isTestingGraphConnection ? "Testing..." : "Test Neo4j Connection"}
+            </Button>
+          </SettingItem>
 
           <SettingItem
             type="switch"

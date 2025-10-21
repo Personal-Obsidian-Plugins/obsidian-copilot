@@ -7,7 +7,16 @@ import { formatDateTime } from "@/utils";
 import { MD5 } from "crypto-js";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { App, Notice, TFile } from "obsidian";
+import type { EmbedCache, LinkCache } from "obsidian";
 import { DBOperations } from "./dbOperations";
+import {
+  buildGraphConnectionConfigFromSettings,
+  buildGraphOptionsFromSettings,
+  GraphIndexedNote,
+  GraphStoreRuntimeOptions,
+  Neo4jGraphStore,
+} from "@/search/neo4jGraphStore";
+import { normalizeTagPaths } from "@/search/tagNormalization";
 import {
   extractAppIgnoreSettings,
   getDecodedPatterns,
@@ -25,10 +34,21 @@ export interface IndexingState {
   indexNoticeMessage: HTMLSpanElement | null;
 }
 
+interface PreparedChunk {
+  content: string;
+  fileInfo: any;
+}
+
+interface PreparedNoteIngestion {
+  graphNote: GraphIndexedNote;
+  chunks: PreparedChunk[];
+}
+
 export class IndexOperations {
   private rateLimiter: RateLimiter;
   private checkpointInterval: number;
   private embeddingBatchSize: number;
+  private readonly graphStore = new Neo4jGraphStore();
   private state: IndexingState = {
     isIndexingPaused: false,
     isIndexingCancelled: false,
@@ -96,23 +116,29 @@ export class IndexOperations {
       // Clear the missing embeddings list before starting new indexing
       this.dbOps.clearFilesMissingEmbeddings();
 
-      // New: Prepare all chunks first
-      const allChunks = await this.prepareAllChunks(files);
-      if (allChunks.length === 0) {
+      const preparedNotes = await this.prepareIngestionPayloads(files);
+      const chunkEntries = preparedNotes.flatMap((note) =>
+        note.chunks.map((chunk) => ({
+          note,
+          chunk,
+        }))
+      );
+
+      if (chunkEntries.length === 0) {
         new Notice("No valid content to index.");
         return 0;
       }
 
       // Process chunks in batches
-      for (let i = 0; i < allChunks.length; i += this.embeddingBatchSize) {
+      for (let i = 0; i < chunkEntries.length; i += this.embeddingBatchSize) {
         if (this.state.isIndexingCancelled) break;
         await this.handlePause();
 
-        const batch = allChunks.slice(i, i + this.embeddingBatchSize);
+        const batch = chunkEntries.slice(i, i + this.embeddingBatchSize);
         try {
           await this.rateLimiter.wait();
           const embeddings = await embeddingInstance.embedDocuments(
-            batch.map((chunk) => chunk.content)
+            batch.map((entry) => entry.chunk.content)
           );
 
           // Validate embeddings
@@ -124,7 +150,7 @@ export class IndexOperations {
 
           // Save batch to database
           for (let j = 0; j < batch.length; j++) {
-            const chunk = batch[j];
+            const { chunk } = batch[j];
             const embedding = embeddings[j];
 
             // Skip documents with invalid embeddings
@@ -172,7 +198,7 @@ export class IndexOperations {
           }
         } catch (err) {
           this.handleError(err, {
-            filePath: batch?.[0]?.fileInfo?.path,
+            filePath: batch?.[0]?.chunk?.fileInfo?.path,
             errors,
             batch,
           });
@@ -181,6 +207,8 @@ export class IndexOperations {
           }
         }
       }
+
+      await this.ingestGraphNotes(preparedNotes);
 
       // Show completion notice before running integrity check
       this.finalizeIndexing(errors);
@@ -207,36 +235,40 @@ export class IndexOperations {
     }
   }
 
-  private async prepareAllChunks(files: TFile[]): Promise<
-    Array<{
-      content: string;
-      fileInfo: any;
-    }>
-  > {
+  /**
+   * Prepare dense chunk payloads and graph metadata for the provided files.
+   *
+   * @param files - Markdown files slated for indexing.
+   * @returns Array of note-level ingestion payloads combining dense and graph views.
+   */
+  private async prepareIngestionPayloads(files: TFile[]): Promise<PreparedNoteIngestion[]> {
     const embeddingInstance = await this.embeddingsManager.getEmbeddingsAPI();
     if (!embeddingInstance) {
       console.error("Embedding instance not found.");
       return [];
     }
-    const embeddingModel = EmbeddingsManager.getModelName(embeddingInstance);
 
+    const embeddingModel = EmbeddingsManager.getModelName(embeddingInstance);
     const textSplitter = RecursiveCharacterTextSplitter.fromLanguage("markdown", {
       chunkSize: CHUNK_SIZE,
     });
-    const allChunks: Array<{ content: string; fileInfo: any }> = [];
+    const payloads: PreparedNoteIngestion[] = [];
 
     for (const file of files) {
       const content = await this.app.vault.cachedRead(file);
-      if (!content?.trim()) continue;
+      if (!content?.trim()) {
+        continue;
+      }
 
-      const fileCache = this.app.metadataCache.getFileCache(file);
+      const fileCache = this.app.metadataCache.getFileCache(file) ?? null;
+      const rawTags = fileCache?.tags?.map((tag) => tag.tag) ?? [];
       const fileInfo = {
         title: file.basename,
         path: file.path,
         embeddingModel,
         ctime: file.stat.ctime,
         mtime: file.stat.mtime,
-        tags: fileCache?.tags?.map((tag) => tag.tag) ?? [],
+        tags: rawTags,
         extension: file.extension,
         metadata: {
           ...(fileCache?.frontmatter ?? {}),
@@ -245,8 +277,6 @@ export class IndexOperations {
         },
       };
 
-      // Add note title as contextual chunk headers
-      // https://js.langchain.com/docs/modules/data_connection/document_transformers/contextual_chunk_headers
       const chunks = await textSplitter.createDocuments([content], [], {
         chunkHeader: `\n\nNOTE TITLE: [[${fileInfo.title}]]\n\nMETADATA:${JSON.stringify(
           fileInfo.metadata
@@ -254,17 +284,126 @@ export class IndexOperations {
         appendChunkOverlapHeader: true,
       });
 
+      const preparedChunks: PreparedChunk[] = [];
       chunks.forEach((chunk) => {
         if (chunk.pageContent.trim()) {
-          allChunks.push({
+          preparedChunks.push({
             content: chunk.pageContent,
             fileInfo,
           });
         }
       });
+
+      if (preparedChunks.length === 0) {
+        continue;
+      }
+
+      const graphNote: GraphIndexedNote = {
+        noteId: file.path,
+        notePath: file.path,
+        tags: normalizeTagPaths(rawTags),
+        wikiLinkTargets: this.resolveLinkTargets(fileCache?.links, file.path),
+        embedTargets: this.resolveLinkTargets(fileCache?.embeds, file.path),
+        updatedAt: file.stat.mtime,
+      };
+
+      payloads.push({
+        graphNote,
+        chunks: preparedChunks,
+      });
     }
 
-    return allChunks;
+    return payloads;
+  }
+
+  /**
+   * Resolve link or embed targets to canonical vault paths.
+   *
+   * @param items - Link-like metadata entries.
+   * @param sourcePath - Path of the note containing the links.
+   * @returns Unique list of resolved target paths.
+   */
+  private resolveLinkTargets<T extends LinkCache | EmbedCache>(
+    items: T[] | undefined,
+    sourcePath: string
+  ): string[] {
+    if (!items?.length) {
+      return [];
+    }
+
+    const targets = new Set<string>();
+    for (const item of items) {
+      const resolved = this.app.metadataCache.getFirstLinkpathDest?.(item.link, sourcePath);
+      if (resolved) {
+        targets.add(resolved.path);
+      }
+    }
+
+    return Array.from(targets);
+  }
+
+  /**
+   * Persist processed notes into the Neo4j graph store when graph indexing is enabled.
+   *
+   * @param notes - Prepared note payloads produced during indexing.
+   */
+  private async ingestGraphNotes(notes: PreparedNoteIngestion[]): Promise<void> {
+    if (notes.length === 0) {
+      return;
+    }
+
+    const settings = getSettings();
+    const graphOptions = buildGraphOptionsFromSettings(settings);
+    if (!graphOptions.enabled) {
+      return;
+    }
+
+    await this.graphStore.initialize(buildGraphConnectionConfigFromSettings(settings));
+
+    const processedPaths = this.state.processedFiles;
+    for (const note of notes) {
+      if (!processedPaths.has(note.graphNote.notePath)) {
+        continue;
+      }
+
+      await this.safeGraphUpsert(note.graphNote, graphOptions);
+    }
+  }
+
+  /**
+   * Upsert a single note into the graph store outside of batch indexing flows.
+   *
+   * @param note - Graph-ready note payload.
+   */
+  private async upsertGraphNote(note: GraphIndexedNote): Promise<void> {
+    const settings = getSettings();
+    const graphOptions = buildGraphOptionsFromSettings(settings);
+    if (!graphOptions.enabled) {
+      return;
+    }
+
+    await this.graphStore.initialize(buildGraphConnectionConfigFromSettings(settings));
+    await this.safeGraphUpsert(note, graphOptions);
+  }
+
+  /**
+   * Execute a graph upsert and surface errors through structured logging.
+   *
+   * @param note - Graph-ready note payload.
+   * @param options - Runtime options gating graph ingestion.
+   */
+  private async safeGraphUpsert(
+    note: GraphIndexedNote,
+    options: GraphStoreRuntimeOptions
+  ): Promise<void> {
+    try {
+      await this.graphStore.upsertNote(note, options);
+    } catch (error) {
+      logError("Graph ingestion failed for note", {
+        error,
+        noteId: note.noteId,
+      });
+    }
   }
 
   private getDocHash(sourceDocument: string): string {
@@ -453,7 +592,7 @@ export class IndexOperations {
     context?: {
       filePath?: string;
       errors?: string[];
-      batch?: Array<{ content: string; fileInfo: any }>;
+      batch?: Array<{ note: PreparedNoteIngestion; chunk: PreparedChunk }>;
     }
   ): void {
     const filePath = context?.filePath;
@@ -467,9 +606,9 @@ export class IndexOperations {
           batchSize: context.batch.length || 0,
           firstChunk: context.batch[0]
             ? {
-                path: context.batch[0].fileInfo?.path,
-                contentLength: context.batch[0].content?.length,
-                hasFileInfo: !!context.batch[0].fileInfo,
+                path: context.batch[0].chunk.fileInfo?.path,
+                contentLength: context.batch[0].chunk.content?.length,
+                hasFileInfo: !!context.batch[0].chunk.fileInfo,
               }
             : "No chunks in batch",
           errorType: error?.constructor?.name,
@@ -529,6 +668,30 @@ export class IndexOperations {
     }
   }
 
+  /**
+   * Remove note metadata from the graph index when the file is deleted.
+   *
+   * @param noteId - Stable identifier of the note, typically the vault-relative path.
+   */
+  public async removeNoteFromGraph(noteId: string): Promise<void> {
+    const settings = getSettings();
+    const graphOptions = buildGraphOptionsFromSettings(settings);
+    if (!graphOptions.enabled) {
+      return;
+    }
+
+    await this.graphStore.initialize(buildGraphConnectionConfigFromSettings(settings));
+
+    try {
+      await this.graphStore.removeNote(noteId);
+    } catch (error) {
+      logError("Graph ingestion failed while removing note", {
+        error,
+        noteId,
+      });
+    }
+  }
+
   public async reindexFile(file: TFile): Promise<void> {
     try {
       const embeddingInstance = await this.embeddingsManager.getEmbeddingsAPI();
@@ -545,18 +708,18 @@ export class IndexOperations {
         return;
       }
 
-      // Reuse prepareAllChunks with a single file
-      const chunks = await this.prepareAllChunks([file]);
-      if (chunks.length === 0) return;
+      const preparedNotes = await this.prepareIngestionPayloads([file]);
+      if (preparedNotes.length === 0) {
+        return;
+      }
 
-      // Process chunks
+      const notePayload = preparedNotes[0];
       const embeddings = await embeddingInstance.embedDocuments(
-        chunks.map((chunk) => chunk.content)
+        notePayload.chunks.map((chunk) => chunk.content)
       );
 
-      // Save to database
-      for (let i = 0; i < chunks.length; i++) {
-        const chunk = chunks[i];
+      for (let i = 0; i < notePayload.chunks.length; i++) {
+        const chunk = notePayload.chunks[i];
         await this.dbOps.upsert({
           ...chunk.fileInfo,
           id: this.getDocHash(chunk.content),
@@ -566,6 +729,8 @@ export class IndexOperations {
           nchars: chunk.content.length,
         });
       }
+
+      await this.upsertGraphNote(notePayload.graphNote);
 
       // Mark that we have unsaved changes instead of saving immediately
       this.dbOps.markUnsavedChanges();
