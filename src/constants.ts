@@ -1,5 +1,5 @@
 import { CustomModel } from "@/aiParams";
-import { AcceptKeyOption } from "@/autocomplete/codemirrorIntegration";
+import { type AcceptKeyOption } from "@/types/autocomplete";
 import { type CopilotSettings } from "@/settings/model";
 import { v4 as uuidv4 } from "uuid";
 import { ChainType } from "./chainFactory";
@@ -756,6 +756,12 @@ export const DEFAULT_SETTINGS: CopilotSettings = {
   qaInclusions: "",
   chatNoteContextPath: "",
   chatNoteContextTags: [],
+  enableGraphVectorStore: true,
+  enableHybridRRFScoring: true,
+  graphIncludedTagPrefixes: [],
+  graphIncludeWikiLinks: true,
+  graphIncludeEmbeds: true,
+  graphTraversalMaxDepth: 2,
   enableIndexSync: true,
   debug: false,
   enableEncryption: false,

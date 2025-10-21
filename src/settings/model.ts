@@ -3,7 +3,7 @@ import { atom, createStore, useAtomValue } from "jotai";
 import { v4 as uuidv4 } from "uuid";
 import { UserMemoryManager } from "@/memory/UserMemoryManager";
 
-import { AcceptKeyOption } from "@/autocomplete/codemirrorIntegration";
+import { type AcceptKeyOption } from "@/types/autocomplete";
 import { type ChainType } from "@/chainFactory";
 import {
   BUILTIN_CHAT_MODELS,
@@ -89,6 +89,18 @@ export interface CopilotSettings {
   indexVaultToVectorStore: string;
   chatNoteContextPath: string;
   chatNoteContextTags: string[];
+  /** Enable building the Neo4j-backed graph vector store */
+  enableGraphVectorStore: boolean;
+  /** Enable hybrid Reciprocal Rank Fusion scoring across graph and dense stores */
+  enableHybridRRFScoring: boolean;
+  /** Canonical tag prefixes (e.g., '#economics/industrial-organization') to include in graph indexing */
+  graphIncludedTagPrefixes: string[];
+  /** Include wiki-links when building the graph vector store */
+  graphIncludeWikiLinks: boolean;
+  /** Include embedded notes/files when building the graph vector store */
+  graphIncludeEmbeds: boolean;
+  /** Maximum traversal depth used by graph-based retrievers */
+  graphTraversalMaxDepth: number;
   enableIndexSync: boolean;
   debug: boolean;
   enableEncryption: boolean;

@@ -1,7 +1,6 @@
 import { BrevilabsClient } from "@/LLMProviders/brevilabsClient";
 import ProjectManager from "@/LLMProviders/projectManager";
 import { CustomModel, getCurrentProject } from "@/aiParams";
-import { AutocompleteService } from "@/autocomplete/autocompleteService";
 import { registerCommands } from "@/commands";
 import CopilotView from "@/components/CopilotView";
 import { APPLY_VIEW_TYPE, ApplyView } from "@/components/composer/ApplyView";
@@ -59,7 +58,6 @@ export default class CopilotPlugin extends Plugin {
   fileParserManager: FileParserManager;
   customCommandRegister: CustomCommandRegister;
   settingsUnsubscriber?: () => void;
-  private autocompleteService: AutocompleteService;
   chatUIState: ChatUIState;
   userMemoryManager: UserMemoryManager;
 
@@ -160,7 +158,6 @@ export default class CopilotPlugin extends Plugin {
     );
 
     // Initialize autocomplete service
-    this.autocompleteService = AutocompleteService.getInstance(this);
     this.customCommandRegister = new CustomCommandRegister(this, this.app.vault);
     this.app.workspace.onLayoutReady(() => {
       this.customCommandRegister.initialize().then(migrateCommands).then(suggestDefaultCommands);
@@ -178,7 +175,6 @@ export default class CopilotPlugin extends Plugin {
 
     this.customCommandRegister.cleanup();
     this.settingsUnsubscriber?.();
-    this.autocompleteService?.destroy();
 
     // Best-effort flush of log file
     await logFileManager.flush();
