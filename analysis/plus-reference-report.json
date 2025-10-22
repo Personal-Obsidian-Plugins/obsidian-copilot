@@ -1,0 +1,5876 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-21T23:59:10.481Z",
+    "repoRoot": "/Users/tannera.parsons/vaults/Obsidian Sandbox/.obsidian/plugins/obsidian-copilot",
+    "pattern": "copilot\\s*plus|plusLicense|isPlus|ChainType\\.COPILOT_PLUS_CHAIN|ChainType\\.PROJECT_CHAIN|CopilotPlus|PlusUtm|plusOnly|PlusChain|PLUS_",
+    "patternFlags": "gi",
+    "tsconfigPath": "/Users/tannera.parsons/vaults/Obsidian Sandbox/.obsidian/plugins/obsidian-copilot/tsconfig.json",
+    "includeGlobs": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
+    "rawArgs": [],
+    "declarationsTextOutput": "analysis/plus-declarations.txt",
+    "declarationsTargetsOutput": "analysis/plus-declarations-targets.json",
+    "dependencyMapOutput": "analysis/plus-dependency-map.json"
+  },
+  "stats": {
+    "symbolCount": 24,
+    "referenceCount": 107,
+    "patternMatchCount": 357,
+    "impactedFileCount": 62
+  },
+  "symbols": [
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "AutocompleteResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "autocomplete",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "AutocompleteResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 84,
+          "column": 18
+        },
+        "snippet": "export interface AutocompleteResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 424,
+            "column": 14
+          },
+          "text": "): Promise<AutocompleteResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 425,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<AutocompleteResponse>(\"/autocomplete\", {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "WordCompleteResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "autocomplete",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "WordCompleteResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 91,
+          "column": 18
+        },
+        "snippet": "export interface WordCompleteResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 444,
+            "column": 14
+          },
+          "text": "): Promise<WordCompleteResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 445,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<WordCompleteResponse>(\"/wordcomplete\", {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "Docs4llmResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "context",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "Docs4llmResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 53,
+          "column": 18
+        },
+        "snippet": "export interface Docs4llmResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 325,
+            "column": 73
+          },
+          "text": "async docs4llm(binaryContent: ArrayBuffer, fileType: string): Promise<Docs4llmResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 343,
+            "column": 60
+          },
+          "text": "const { data, error } = await this.makeFormDataRequest<Docs4llmResponse>(\"/docs4llm\", formData);",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "Youtube4llmResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "integrations",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "Youtube4llmResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 72,
+          "column": 18
+        },
+        "snippet": "export interface Youtube4llmResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 408,
+            "column": 43
+          },
+          "text": "async youtube4llm(url: string): Promise<Youtube4llmResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 409,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<Youtube4llmResponse>(\"/youtube4llm\", { url });",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "BrevilabsClient",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "licensing",
+        "tags": ["client", "remove"]
+      },
+      "declaration": {
+        "name": "BrevilabsClient",
+        "kind": "ClassDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 98,
+          "column": 14
+        },
+        "snippet": "export class BrevilabsClient {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 12,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 45,
+            "column": 27
+          },
+          "text": "const brevilabsClient = BrevilabsClient.getInstance();",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 55,
+            "column": 27
+          },
+          "text": "const brevilabsClient = BrevilabsClient.getInstance();",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/embeddingManager.ts",
+            "line": 14,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"./brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/embeddingManager.ts",
+            "line": 153,
+            "column": 31
+          },
+          "text": "const brevilabsClient = BrevilabsClient.getInstance();",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/FileParserManager.ts",
+            "line": 1,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/FileParserManager.ts",
+            "line": 25,
+            "column": 28
+          },
+          "text": "private brevilabsClient: BrevilabsClient;",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "property",
+            "context": "brevilabsClient"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/FileParserManager.ts",
+            "line": 28,
+            "column": 32
+          },
+          "text": "constructor(brevilabsClient: BrevilabsClient) {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "parameter",
+            "context": "brevilabsClient"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/FileParserManager.ts",
+            "line": 187,
+            "column": 28
+          },
+          "text": "private brevilabsClient: BrevilabsClient;",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "property",
+            "context": "brevilabsClient"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/FileParserManager.ts",
+            "line": 196,
+            "column": 32
+          },
+          "text": "constructor(brevilabsClient: BrevilabsClient, project: ProjectConfig | null = null) {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "parameter",
+            "context": "brevilabsClient"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/FileParserManager.ts",
+            "line": 335,
+            "column": 22
+          },
+          "text": "brevilabsClient: BrevilabsClient,",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "parameter",
+            "context": "brevilabsClient"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/YoutubeTranscriptModal.tsx",
+            "line": 1,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/YoutubeTranscriptModal.tsx",
+            "line": 64,
+            "column": 30
+          },
+          "text": "const response = await BrevilabsClient.getInstance().youtube4llm(url);",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/mentions/Mention.ts",
+            "line": 2,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient, Url4llmResponse } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/mentions/Mention.ts",
+            "line": 16,
+            "column": 28
+          },
+          "text": "private brevilabsClient: BrevilabsClient;",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "property",
+            "context": "brevilabsClient"
+          }
+        },
+        {
+          "location": {
+            "file": "src/mentions/Mention.ts",
+            "line": 20,
+            "column": 28
+          },
+          "text": "this.brevilabsClient = BrevilabsClient.getInstance();",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/SearchTools.ts",
+            "line": 3,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/SearchTools.ts",
+            "line": 288,
+            "column": 30
+          },
+          "text": "const response = await BrevilabsClient.getInstance().webSearch(standaloneQuestion);",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/YoutubeTools.ts",
+            "line": 1,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/tools/YoutubeTools.ts",
+            "line": 53,
+            "column": 34
+          },
+          "text": "const response = await BrevilabsClient.getInstance().youtube4llm(url);",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/intentAnalyzer.ts",
+            "line": 15,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"./brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/intentAnalyzer.ts",
+            "line": 44,
+            "column": 35
+          },
+          "text": "const brocaResponse = await BrevilabsClient.getInstance().broca(",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/main.ts",
+            "line": 1,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/main.ts",
+            "line": 55,
+            "column": 20
+          },
+          "text": "brevilabsClient: BrevilabsClient;",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "property",
+            "context": "brevilabsClient"
+          }
+        },
+        {
+          "location": {
+            "file": "src/main.ts",
+            "line": 82,
+            "column": 28
+          },
+          "text": "this.brevilabsClient = BrevilabsClient.getInstance();",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/projectManager.ts",
+            "line": 24,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"./brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/projectManager.ts",
+            "line": 45,
+            "column": 7
+          },
+          "text": "BrevilabsClient.getInstance(),",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/projectManager.ts",
+            "line": 161,
+            "column": 9
+          },
+          "text": "BrevilabsClient.getInstance(),",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/projectManager.ts",
+            "line": 715,
+            "column": 18
+          },
+          "text": "return BrevilabsClient.getInstance().youtube4llm(youtubeUrl);",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/projectManager.ts",
+            "line": 744,
+            "column": 7
+          },
+          "text": "BrevilabsClient.getInstance(),",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        },
+        {
+          "location": {
+            "file": "src/search/hybridRetriever.ts",
+            "line": 3,
+            "column": 10
+          },
+          "text": "import { BrevilabsClient } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/search/hybridRetriever.ts",
+            "line": 100,
+            "column": 38
+          },
+          "text": "const rerankResponse = await BrevilabsClient.getInstance().rerank(",
+          "usage": {
+            "kind": "static-method-call",
+            "detail": "getInstance"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "static-method-call",
+          "detail": "getInstance",
+          "count": 14
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 11
+        },
+        {
+          "kind": "type-reference",
+          "detail": "property",
+          "count": 4
+        },
+        {
+          "kind": "type-reference",
+          "detail": "parameter",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "checkIsPlusUser",
+        "file": "src/plusUtils.ts",
+        "category": "licensing",
+        "tags": ["validation"]
+      },
+      "declaration": {
+        "name": "checkIsPlusUser",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 40,
+          "column": 23
+        },
+        "snippet": "export async function checkIsPlusUser(context?: Record<string, any>): Promise<boolean | undefined> {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/commands/index.ts",
+            "line": 18,
+            "column": 10
+          },
+          "text": "import { checkIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/commands/index.ts",
+            "line": 433,
+            "column": 30
+          },
+          "text": "const isPlusUser = await checkIsPlusUser();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "checkIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/PlusSettings.tsx",
+            "line": 6,
+            "column": 10
+          },
+          "text": "import { checkIsPlusUser, navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/PlusSettings.tsx",
+            "line": 60,
+            "column": 34
+          },
+          "text": "const result = await checkIsPlusUser();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "checkIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+            "line": 2,
+            "column": 10
+          },
+          "text": "import { checkIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+            "line": 53,
+            "column": 32
+          },
+          "text": "const isPlusUser = await checkIsPlusUser();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "checkIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/main.ts",
+            "line": 22,
+            "column": 10
+          },
+          "text": "import { checkIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/main.ts",
+            "line": 84,
+            "column": 5
+          },
+          "text": "checkIsPlusUser();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "checkIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+            "line": 17,
+            "column": 10
+          },
+          "text": "import { checkIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+            "line": 385,
+            "column": 30
+          },
+          "text": "const isPlusUser = await checkIsPlusUser({",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "checkIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+            "line": 4,
+            "column": 10
+          },
+          "text": "import { checkIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+            "line": 254,
+            "column": 30
+          },
+          "text": "const isPlusUser = await checkIsPlusUser({",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "checkIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+            "line": 22,
+            "column": 10
+          },
+          "text": "import { checkIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+            "line": 26,
+            "column": 31
+          },
+          "text": "const mockCheckIsPlusUser = checkIsPlusUser as jest.MockedFunction<typeof checkIsPlusUser>;",
+          "usage": {
+            "kind": "other",
+            "detail": "AsExpression"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+            "line": 26,
+            "column": 77
+          },
+          "text": "const mockCheckIsPlusUser = checkIsPlusUser as jest.MockedFunction<typeof checkIsPlusUser>;",
+          "usage": {
+            "kind": "other",
+            "detail": "TypeQuery"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 7
+        },
+        {
+          "kind": "direct-call",
+          "detail": "checkIsPlusUser",
+          "count": 6
+        },
+        {
+          "kind": "other",
+          "detail": "AsExpression",
+          "count": 1
+        },
+        {
+          "kind": "other",
+          "detail": "TypeQuery",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "useIsPlusUser",
+        "file": "src/plusUtils.ts",
+        "category": "licensing",
+        "tags": ["hooks"]
+      },
+      "declaration": {
+        "name": "useIsPlusUser",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 34,
+          "column": 17
+        },
+        "snippet": "export function useIsPlusUser(): boolean | undefined {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/components/chat-components/ChatControls.tsx",
+            "line": 11,
+            "column": 30
+          },
+          "text": "import { navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/chat-components/ChatControls.tsx",
+            "line": 200,
+            "column": 22
+          },
+          "text": "const isPlusUser = useIsPlusUser();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "useIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/PlusSettings.tsx",
+            "line": 6,
+            "column": 47
+          },
+          "text": "import { checkIsPlusUser, navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/PlusSettings.tsx",
+            "line": 15,
+            "column": 22
+          },
+          "text": "const isPlusUser = useIsPlusUser();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "useIsPlusUser"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/Chat.tsx",
+            "line": 36,
+            "column": 10
+          },
+          "text": "import { useIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/Chat.tsx",
+            "line": 155,
+            "column": 22
+          },
+          "text": "const isPlusUser = useIsPlusUser();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "useIsPlusUser"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "direct-call",
+          "detail": "useIsPlusUser",
+          "count": 3
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "turnOffPlus",
+        "file": "src/plusUtils.ts",
+        "category": "licensing",
+        "tags": ["status", "settings"]
+      },
+      "declaration": {
+        "name": "turnOffPlus",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 120,
+          "column": 17
+        },
+        "snippet": "export function turnOffPlus(): void {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 42,
+            "column": 5
+          },
+          "text": "turnOffPlus();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "turnOffPlus"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 4,
+            "column": 10
+          },
+          "text": "import { turnOffPlus, turnOnPlus } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 255,
+            "column": 9
+          },
+          "text": "turnOffPlus();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "turnOffPlus"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "direct-call",
+          "detail": "turnOffPlus",
+          "count": 2
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "applyPlusSettings",
+        "file": "src/plusUtils.ts",
+        "category": "licensing",
+        "tags": ["settings", "side-effects"]
+      },
+      "declaration": {
+        "name": "applyPlusSettings",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 65,
+          "column": 17
+        },
+        "snippet": "export function applyPlusSettings(): void {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 10,
+            "column": 3
+          },
+          "text": "applyPlusSettings,",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 83,
+            "column": 7
+          },
+          "text": "applyPlusSettings();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "applyPlusSettings"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "direct-call",
+          "detail": "applyPlusSettings",
+          "count": 1
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "turnOnPlus",
+        "file": "src/plusUtils.ts",
+        "category": "licensing",
+        "tags": ["status", "settings"]
+      },
+      "declaration": {
+        "name": "turnOnPlus",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 110,
+          "column": 17
+        },
+        "snippet": "export function turnOnPlus(): void {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 4,
+            "column": 23
+          },
+          "text": "import { turnOffPlus, turnOnPlus } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 261,
+            "column": 5
+          },
+          "text": "turnOnPlus();",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "turnOnPlus"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "direct-call",
+          "detail": "turnOnPlus",
+          "count": 1
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "LicenseResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "licensing",
+        "tags": ["status"]
+      },
+      "declaration": {
+        "name": "LicenseResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 79,
+          "column": 18
+        },
+        "snippet": "export interface LicenseResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 245,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<LicenseResponse>(",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "navigateToPlusPage",
+        "file": "src/plusUtils.ts",
+        "category": "marketing",
+        "tags": ["ui", "navigation"]
+      },
+      "declaration": {
+        "name": "navigateToPlusPage",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 106,
+          "column": 17
+        },
+        "snippet": "export function navigateToPlusPage(medium: PlusUtmMedium): void {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+            "line": 6,
+            "column": 23
+          },
+          "text": "import { isPlusModel, navigateToPlusPage } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+            "line": 37,
+            "column": 13
+          },
+          "text": "navigateToPlusPage(PLUS_UTM_MEDIUMS.EXPIRED_MODAL);",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "navigateToPlusPage"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/chat-components/ChatControls.tsx",
+            "line": 11,
+            "column": 10
+          },
+          "text": "import { navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/chat-components/ChatControls.tsx",
+            "line": 258,
+            "column": 19
+          },
+          "text": "navigateToPlusPage(PLUS_UTM_MEDIUMS.CHAT_MODE_SELECT);",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "navigateToPlusPage"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/chat-components/ChatControls.tsx",
+            "line": 280,
+            "column": 19
+          },
+          "text": "navigateToPlusPage(PLUS_UTM_MEDIUMS.CHAT_MODE_SELECT);",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "navigateToPlusPage"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/PlusSettings.tsx",
+            "line": 6,
+            "column": 27
+          },
+          "text": "import { checkIsPlusUser, navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/PlusSettings.tsx",
+            "line": 76,
+            "column": 26
+          },
+          "text": "onClick={() => navigateToPlusPage(PLUS_UTM_MEDIUMS.SETTINGS)}",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "navigateToPlusPage"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "direct-call",
+          "detail": "navigateToPlusPage",
+          "count": 4
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "createPlusPageUrl",
+        "file": "src/plusUtils.ts",
+        "category": "marketing",
+        "tags": ["urls"]
+      },
+      "declaration": {
+        "name": "createPlusPageUrl",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 102,
+          "column": 17
+        },
+        "snippet": "export function createPlusPageUrl(medium: PlusUtmMedium): string {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 107,
+            "column": 15
+          },
+          "text": "window.open(createPlusPageUrl(medium), \"_blank\");",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "createPlusPageUrl"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/BasicSettings.tsx",
+            "line": 9,
+            "column": 10
+          },
+          "text": "import { createPlusPageUrl } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/settings/v2/components/BasicSettings.tsx",
+            "line": 202,
+            "column": 35
+          },
+          "text": "href={createPlusPageUrl(PLUS_UTM_MEDIUMS.MODE_SELECT_TOOLTIP)}",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "createPlusPageUrl"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "direct-call",
+          "detail": "createPlusPageUrl",
+          "count": 2
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "prefix",
+        "request": "DEFAULT_COPILOT_PLUS_",
+        "file": "src/plusUtils.ts",
+        "category": "model-selection",
+        "tags": ["defaults"],
+        "note": "Covers all default model constants for Plus users."
+      },
+      "declaration": {
+        "name": "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
+        "kind": "VariableDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 17,
+          "column": 14
+        },
+        "snippet": "export const DEFAULT_COPILOT_PLUS_CHAT_MODEL = ChatModels.COPILOT_PLUS_FLASH;"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 19,
+            "column": 3
+          },
+          "text": "DEFAULT_COPILOT_PLUS_CHAT_MODEL + \"|\" + ChatModelProviders.COPILOT_PLUS;",
+          "usage": {
+            "kind": "other",
+            "detail": "BinaryExpression"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 7,
+            "column": 3
+          },
+          "text": "DEFAULT_COPILOT_PLUS_CHAT_MODEL,",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 40,
+            "column": 56
+          },
+          "text": "Chat model: <b className=\"tw-text-accent\">{DEFAULT_COPILOT_PLUS_CHAT_MODEL}</b>",
+          "usage": {
+            "kind": "other",
+            "detail": "JsxExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        },
+        {
+          "kind": "other",
+          "detail": "BinaryExpression",
+          "count": 1
+        },
+        {
+          "kind": "other",
+          "detail": "JsxExpression",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "prefix",
+        "request": "DEFAULT_COPILOT_PLUS_",
+        "file": "src/plusUtils.ts",
+        "category": "model-selection",
+        "tags": ["defaults"],
+        "note": "Covers all default model constants for Plus users."
+      },
+      "declaration": {
+        "name": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
+        "kind": "VariableDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 20,
+          "column": 14
+        },
+        "snippet": "export const DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL = EmbeddingModels.COPILOT_PLUS_SMALL;"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 22,
+            "column": 3
+          },
+          "text": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL + \"|\" + EmbeddingModelProviders.COPILOT_PLUS;",
+          "usage": {
+            "kind": "other",
+            "detail": "BinaryExpression"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 8,
+            "column": 3
+          },
+          "text": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL,",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 45,
+            "column": 46
+          },
+          "text": "<b className=\"tw-text-accent\">{DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL}</b>",
+          "usage": {
+            "kind": "other",
+            "detail": "JsxExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        },
+        {
+          "kind": "other",
+          "detail": "BinaryExpression",
+          "count": 1
+        },
+        {
+          "kind": "other",
+          "detail": "JsxExpression",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "prefix",
+        "request": "DEFAULT_COPILOT_PLUS_",
+        "file": "src/plusUtils.ts",
+        "category": "model-selection",
+        "tags": ["defaults"],
+        "note": "Covers all default model constants for Plus users."
+      },
+      "declaration": {
+        "name": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
+        "kind": "VariableDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 21,
+          "column": 14
+        },
+        "snippet": "export const DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY ="
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 67,
+            "column": 29
+          },
+          "text": "const embeddingModelKey = DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY;",
+          "usage": {
+            "kind": "other",
+            "detail": "VariableDeclaration"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 9,
+            "column": 3
+          },
+          "text": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY,",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+            "line": 47,
+            "column": 45
+          },
+          "text": "{settings.embeddingModelKey !== DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY && (",
+          "usage": {
+            "kind": "other",
+            "detail": "BinaryExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        },
+        {
+          "kind": "other",
+          "detail": "BinaryExpression",
+          "count": 1
+        },
+        {
+          "kind": "other",
+          "detail": "VariableDeclaration",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "isPlusModel",
+        "file": "src/plusUtils.ts",
+        "category": "model-selection",
+        "tags": ["models"]
+      },
+      "declaration": {
+        "name": "isPlusModel",
+        "kind": "FunctionDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 29,
+          "column": 17
+        },
+        "snippet": "export function isPlusModel(modelKey: string): boolean {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+            "line": 6,
+            "column": 10
+          },
+          "text": "import { isPlusModel, navigateToPlusPage } from \"@/plusUtils\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+            "line": 14,
+            "column": 5
+          },
+          "text": "isPlusModel(settings.defaultModelKey) && isPlusModel(settings.embeddingModelKey);",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "isPlusModel"
+          }
+        },
+        {
+          "location": {
+            "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+            "line": 14,
+            "column": 46
+          },
+          "text": "isPlusModel(settings.defaultModelKey) && isPlusModel(settings.embeddingModelKey);",
+          "usage": {
+            "kind": "direct-call",
+            "detail": "isPlusModel"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "direct-call",
+          "detail": "isPlusModel",
+          "count": 2
+        },
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "prefix",
+        "request": "DEFAULT_COPILOT_PLUS_",
+        "file": "src/plusUtils.ts",
+        "category": "model-selection",
+        "tags": ["defaults"],
+        "note": "Covers all default model constants for Plus users."
+      },
+      "declaration": {
+        "name": "DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY",
+        "kind": "VariableDeclaration",
+        "location": {
+          "file": "src/plusUtils.ts",
+          "line": 18,
+          "column": 14
+        },
+        "snippet": "export const DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY ="
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/plusUtils.ts",
+            "line": 66,
+            "column": 27
+          },
+          "text": "const defaultModelKey = DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY;",
+          "usage": {
+            "kind": "other",
+            "detail": "VariableDeclaration"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "other",
+          "detail": "VariableDeclaration",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "Pdf4llmResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "pdf",
+        "tags": ["migrate"]
+      },
+      "declaration": {
+        "name": "Pdf4llmResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 48,
+          "column": 18
+        },
+        "snippet": "export interface Pdf4llmResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 308,
+            "column": 54
+          },
+          "text": "async pdf4llm(binaryContent: ArrayBuffer): Promise<Pdf4llmResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 312,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<Pdf4llmResponse>(\"/pdf4llm\", {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        },
+        {
+          "location": {
+            "file": "src/cache/pdfCache.ts",
+            "line": 1,
+            "column": 10
+          },
+          "text": "import { Pdf4llmResponse } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/cache/pdfCache.ts",
+            "line": 38,
+            "column": 35
+          },
+          "text": "async get(file: TFile): Promise<Pdf4llmResponse | null> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "UnionType"
+          }
+        },
+        {
+          "location": {
+            "file": "src/cache/pdfCache.ts",
+            "line": 56,
+            "column": 36
+          },
+          "text": "async set(file: TFile, response: Pdf4llmResponse): Promise<void> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "parameter",
+            "context": "response"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "parameter",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "UnionType",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "Url4llmResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "tools",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "Url4llmResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 43,
+          "column": 18
+        },
+        "snippet": "export interface Url4llmResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 296,
+            "column": 39
+          },
+          "text": "async url4llm(url: string): Promise<Url4llmResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 297,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<Url4llmResponse>(\"/url4llm\", { url });",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        },
+        {
+          "location": {
+            "file": "src/mentions/Mention.ts",
+            "line": 2,
+            "column": 27
+          },
+          "text": "import { BrevilabsClient, Url4llmResponse } from \"@/LLMProviders/brevilabsClient\";",
+          "usage": {
+            "kind": "import",
+            "detail": "specifier"
+          }
+        },
+        {
+          "location": {
+            "file": "src/mentions/Mention.ts",
+            "line": 45,
+            "column": 42
+          },
+          "text": "async processUrl(url: string): Promise<Url4llmResponse & { error?: string }> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "IntersectionType"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "import",
+          "detail": "specifier",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "IntersectionType",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "BrocaResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "tools",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "BrocaResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 9,
+          "column": 18
+        },
+        "snippet": "export interface BrocaResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 265,
+            "column": 69
+          },
+          "text": "async broca(userMessage: string, isProjectMode: boolean): Promise<BrocaResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 266,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<BrocaResponse>(\"/broca\", {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "RerankResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "tools",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "RerankResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 23,
+          "column": 18
+        },
+        "snippet": "export interface RerankResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 280,
+            "column": 61
+          },
+          "text": "async rerank(query: string, documents: string[]): Promise<RerankResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 281,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<RerankResponse>(\"/rerank\", {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "WebSearchResponse",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "tools",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "WebSearchResponse",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 58,
+          "column": 18
+        },
+        "snippet": "export interface WebSearchResponse {"
+      },
+      "references": [
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 396,
+            "column": 43
+          },
+          "text": "async webSearch(query: string): Promise<WebSearchResponse> {",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "TypeReference"
+          }
+        },
+        {
+          "location": {
+            "file": "src/LLMProviders/brevilabsClient.ts",
+            "line": 397,
+            "column": 52
+          },
+          "text": "const { data, error } = await this.makeRequest<WebSearchResponse>(\"/websearch\", { query });",
+          "usage": {
+            "kind": "type-reference",
+            "detail": "CallExpression"
+          }
+        }
+      ],
+      "usageSummary": [
+        {
+          "kind": "type-reference",
+          "detail": "CallExpression",
+          "count": 1
+        },
+        {
+          "kind": "type-reference",
+          "detail": "TypeReference",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "target": {
+        "matchType": "exact",
+        "request": "ToolCall",
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "category": "tools",
+        "tags": ["remove"]
+      },
+      "declaration": {
+        "name": "ToolCall",
+        "kind": "InterfaceDeclaration",
+        "location": {
+          "file": "src/LLMProviders/brevilabsClient.ts",
+          "line": 38,
+          "column": 18
+        },
+        "snippet": "export interface ToolCall {"
+      },
+      "references": [],
+      "usageSummary": []
+    }
+  ],
+  "patternMatches": [
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/aiParams.ts",
+        "line": 233,
+        "column": 29
+      },
+      "text": "return getChainType() === ChainType.PROJECT_CHAIN;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/chainFactory.ts",
+        "line": 59,
+        "column": 11
+      },
+      "text": "COPILOT_PLUS_CHAIN = \"copilot_plus\","
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/commands/index.ts",
+        "line": 18,
+        "column": 15
+      },
+      "text": "import { checkIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/commands/index.ts",
+        "line": 431,
+        "column": 46
+      },
+      "text": "// Add command to download YouTube script (Copilot Plus only)"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/commands/index.ts",
+        "line": 433,
+        "column": 11
+      },
+      "text": "const isPlusUser = await checkIsPlusUser();"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/commands/index.ts",
+        "line": 433,
+        "column": 35
+      },
+      "text": "const isPlusUser = await checkIsPlusUser();"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/commands/index.ts",
+        "line": 434,
+        "column": 10
+      },
+      "text": "if (!isPlusUser) {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/commands/index.ts",
+        "line": 435,
+        "column": 55
+      },
+      "text": "new Notice(\"Download YouTube Script (plus) is a Copilot Plus feature\");"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/AtMentionTypeahead.tsx",
+        "line": 16,
+        "column": 5
+      },
+      "text": "isCopilotPlus?: boolean;"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/AtMentionTypeahead.tsx",
+        "line": 33,
+        "column": 5
+      },
+      "text": "isCopilotPlus = false,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/AtMentionTypeahead.tsx",
+        "line": 45,
+        "column": 61
+      },
+      "text": "const availableCategoryOptions = useAtMentionCategories(isCopilotPlus);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/AtMentionTypeahead.tsx",
+        "line": 52,
+        "column": 7
+      },
+      "text": "isCopilotPlus,"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatContextMenu.tsx",
+        "line": 17,
+        "column": 10
+      },
+      "text": "import { isPlusChain } from \"@/utils\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatContextMenu.tsx",
+        "line": 81,
+        "column": 11
+      },
+      "text": "const isCopilotPlus = isPlusChain(currentChain);"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatContextMenu.tsx",
+        "line": 81,
+        "column": 25
+      },
+      "text": "const isCopilotPlus = isPlusChain(currentChain);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatContextMenu.tsx",
+        "line": 148,
+        "column": 17
+      },
+      "text": "isCopilotPlus={isCopilotPlus}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatContextMenu.tsx",
+        "line": 148,
+        "column": 32
+      },
+      "text": "isCopilotPlus={isCopilotPlus}"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatContextMenu.tsx",
+        "line": 187,
+        "column": 25
+      },
+      "text": "{currentChain === ChainType.PROJECT_CHAIN && ("
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 9,
+        "column": 10
+      },
+      "text": "import { PLUS_UTM_MEDIUMS } from \"@/constants\";"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 11,
+        "column": 33
+      },
+      "text": "import { navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 200,
+        "column": 9
+      },
+      "text": "const isPlusUser = useIsPlusUser();"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 200,
+        "column": 25
+      },
+      "text": "const isPlusUser = useIsPlusUser();"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 205,
+        "column": 23
+      },
+      "text": "if (chainType !== ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 219,
+        "column": 34
+      },
+      "text": "{selectedChain === ChainType.COPILOT_PLUS_CHAIN && ("
+    },
+    {
+      "match": "copilot plus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 222,
+        "column": 19
+      },
+      "text": "copilot plus"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 225,
+        "column": 34
+      },
+      "text": "{selectedChain === ChainType.PROJECT_CHAIN && \"projects (alpha)\"}"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 244,
+        "column": 14
+      },
+      "text": "{isPlusUser ? ("
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 247,
+        "column": 36
+      },
+      "text": "handleModeChange(ChainType.COPILOT_PLUS_CHAIN);"
+    },
+    {
+      "match": "copilot plus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 252,
+        "column": 19
+      },
+      "text": "copilot plus"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 258,
+        "column": 38
+      },
+      "text": "navigateToPlusPage(PLUS_UTM_MEDIUMS.CHAT_MODE_SELECT);"
+    },
+    {
+      "match": "copilot plus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 262,
+        "column": 17
+      },
+      "text": "copilot plus"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 267,
+        "column": 14
+      },
+      "text": "{isPlusUser ? ("
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 271,
+        "column": 36
+      },
+      "text": "handleModeChange(ChainType.PROJECT_CHAIN);"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 280,
+        "column": 38
+      },
+      "text": "navigateToPlusPage(PLUS_UTM_MEDIUMS.CHAT_MODE_SELECT);"
+    },
+    {
+      "match": "copilot plus",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 284,
+        "column": 17
+      },
+      "text": "copilot plus"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatControls.tsx",
+        "line": 363,
+        "column": 32
+      },
+      "text": "{selectedChain === ChainType.PROJECT_CHAIN ? ("
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 15,
+        "column": 10
+      },
+      "text": "import { isPlusChain } from \"@/utils\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 115,
+        "column": 11
+      },
+      "text": "const isCopilotPlus = isPlusChain(currentChain);"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 115,
+        "column": 25
+      },
+      "text": "const isCopilotPlus = isPlusChain(currentChain);"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 133,
+        "column": 26
+      },
+      "text": "if (currentChain === ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 143,
+        "column": 26
+      },
+      "text": "if (currentChain === ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 171,
+        "column": 24
+      },
+      "text": "currentChain === ChainType.PROJECT_CHAIN &&"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 190,
+        "column": 12
+      },
+      "text": "if (!isCopilotPlus) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 250,
+        "column": 12
+      },
+      "text": "if (!isCopilotPlus || autonomousAgentToggle) return;"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 271,
+        "column": 12
+      },
+      "text": "if (!isCopilotPlus || autonomousAgentToggle) return;"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 281,
+        "column": 25
+      },
+      "text": "}, [toolsFromPills, isCopilotPlus, autonomousAgentToggle]);"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 465,
+        "column": 9
+      },
+      "text": "if (isPlusChain(currentChain)) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 561,
+        "column": 39
+      },
+      "text": "if (lexicalEditorRef.current && isCopilotPlus) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 566,
+        "column": 9
+      },
+      "text": "}, [isCopilotPlus]);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 569,
+        "column": 39
+      },
+      "text": "if (lexicalEditorRef.current && isCopilotPlus) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 575,
+        "column": 9
+      },
+      "text": "}, [isCopilotPlus]);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 578,
+        "column": 39
+      },
+      "text": "if (lexicalEditorRef.current && isCopilotPlus) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 583,
+        "column": 9
+      },
+      "text": "}, [isCopilotPlus]);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 596,
+        "column": 11
+      },
+      "text": "if (isCopilotPlus && !autonomousAgentToggle && !vaultToggle) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 600,
+        "column": 9
+      },
+      "text": "}, [isCopilotPlus, autonomousAgentToggle, vaultToggle]);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 658,
+        "column": 27
+      },
+      "text": "onURLsChange={isCopilotPlus ? setUrlsFromPills : undefined}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 659,
+        "column": 28
+      },
+      "text": "onURLsRemoved={isCopilotPlus ? handleURLPillsRemoved : undefined}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 660,
+        "column": 28
+      },
+      "text": "onToolsChange={isCopilotPlus ? setToolsFromPills : undefined}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 661,
+        "column": 29
+      },
+      "text": "onToolsRemoved={isCopilotPlus ? handleToolPillsRemoved : undefined}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 669,
+        "column": 13
+      },
+      "text": "isCopilotPlus={isCopilotPlus}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 669,
+        "column": 28
+      },
+      "text": "isCopilotPlus={isCopilotPlus}"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatInput.tsx",
+        "line": 698,
+        "column": 38
+      },
+      "text": "if (currentChain !== ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 14,
+        "column": 10
+      },
+      "text": "import { isPlusChain } from \"@/utils\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 50,
+        "column": 11
+      },
+      "text": "const isCopilotPlus = isPlusChain(currentChain);"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 50,
+        "column": 25
+      },
+      "text": "const isCopilotPlus = isPlusChain(currentChain);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 51,
+        "column": 33
+      },
+      "text": "const showAutonomousAgent = isCopilotPlus && currentChain !== ChainType.PROJECT_CHAIN;"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 51,
+        "column": 65
+      },
+      "text": "const showAutonomousAgent = isCopilotPlus && currentChain !== ChainType.PROJECT_CHAIN;"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 86,
+        "column": 13
+      },
+      "text": "// If not Copilot Plus, don't show any tools"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 87,
+        "column": 10
+      },
+      "text": "if (!isCopilotPlus) {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 95,
+        "column": 52
+      },
+      "text": "{/* Autonomous Agent button - only show in Copilot Plus mode and NOT in Projects mode */}"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/ChatToolControls.tsx",
+        "line": 186,
+        "column": 56
+      },
+      "text": "{/* Autonomous Agent option - only show in Copilot Plus mode and NOT in Projects mode */}"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAllNotes.ts",
+        "line": 9,
+        "column": 31
+      },
+      "text": "* Includes PDF files when in Copilot Plus mode."
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAllNotes.ts",
+        "line": 18,
+        "column": 13
+      },
+      "text": "* @param isCopilotPlus - Whether to include PDF files (Plus feature)"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAllNotes.ts",
+        "line": 21,
+        "column": 31
+      },
+      "text": "export function useAllNotes(isCopilotPlus: boolean = false): TFile[] {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAllNotes.ts",
+        "line": 27,
+        "column": 11
+      },
+      "text": "if (isCopilotPlus) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAllNotes.ts",
+        "line": 37,
+        "column": 19
+      },
+      "text": "}, [allNotes, isCopilotPlus]);"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+        "line": 43,
+        "column": 63
+      },
+      "text": "* Hook that provides available @ mention categories based on Copilot Plus status."
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+        "line": 46,
+        "column": 13
+      },
+      "text": "* @param isCopilotPlus - Whether Copilot Plus features are enabled"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+        "line": 46,
+        "column": 35
+      },
+      "text": "* @param isCopilotPlus - Whether Copilot Plus features are enabled"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+        "line": 49,
+        "column": 42
+      },
+      "text": "export function useAtMentionCategories(isCopilotPlus: boolean = false): CategoryOption[] {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+        "line": 50,
+        "column": 39
+      },
+      "text": "// Filter category options based on Copilot Plus status"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+        "line": 54,
+        "column": 18
+      },
+      "text": "return isCopilotPlus;"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+        "line": 58,
+        "column": 9
+      },
+      "text": "}, [isCopilotPlus]);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionSearch.ts",
+        "line": 22,
+        "column": 5
+      },
+      "text": "isCopilotPlus: boolean,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionSearch.ts",
+        "line": 27,
+        "column": 34
+      },
+      "text": "const allNotes = useAllNotes(isCopilotPlus);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionSearch.ts",
+        "line": 48,
+        "column": 9
+      },
+      "text": "isCopilotPlus"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useAtMentionSearch.ts",
+        "line": 59,
+        "column": 8
+      },
+      "text": "[isCopilotPlus]"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useNoteSearch.ts",
+        "line": 35,
+        "column": 13
+      },
+      "text": "* @param isCopilotPlus - Whether Copilot Plus features are enabled (includes PDFs)"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useNoteSearch.ts",
+        "line": 35,
+        "column": 35
+      },
+      "text": "* @param isCopilotPlus - Whether Copilot Plus features are enabled (includes PDFs)"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useNoteSearch.ts",
+        "line": 42,
+        "column": 5
+      },
+      "text": "isCopilotPlus: boolean = false,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/hooks/useNoteSearch.ts",
+        "line": 47,
+        "column": 34
+      },
+      "text": "const allNotes = useAllNotes(isCopilotPlus);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/LexicalEditor.tsx",
+        "line": 55,
+        "column": 5
+      },
+      "text": "isCopilotPlus?: boolean;"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/LexicalEditor.tsx",
+        "line": 80,
+        "column": 5
+      },
+      "text": "isCopilotPlus = false,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/LexicalEditor.tsx",
+        "line": 181,
+        "column": 32
+      },
+      "text": "<NoteCommandPlugin isCopilotPlus={isCopilotPlus} currentActiveFile={currentActiveFile} />"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/LexicalEditor.tsx",
+        "line": 181,
+        "column": 47
+      },
+      "text": "<NoteCommandPlugin isCopilotPlus={isCopilotPlus} currentActiveFile={currentActiveFile} />"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/LexicalEditor.tsx",
+        "line": 186,
+        "column": 15
+      },
+      "text": "isCopilotPlus={isCopilotPlus}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/LexicalEditor.tsx",
+        "line": 186,
+        "column": 30
+      },
+      "text": "isCopilotPlus={isCopilotPlus}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/plugins/AtMentionCommandPlugin.tsx",
+        "line": 19,
+        "column": 5
+      },
+      "text": "isCopilotPlus?: boolean;"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/plugins/AtMentionCommandPlugin.tsx",
+        "line": 24,
+        "column": 5
+      },
+      "text": "isCopilotPlus = false,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/plugins/AtMentionCommandPlugin.tsx",
+        "line": 39,
+        "column": 61
+      },
+      "text": "const availableCategoryOptions = useAtMentionCategories(isCopilotPlus);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/plugins/AtMentionCommandPlugin.tsx",
+        "line": 71,
+        "column": 7
+      },
+      "text": "isCopilotPlus,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/plugins/NoteCommandPlugin.tsx",
+        "line": 17,
+        "column": 5
+      },
+      "text": "isCopilotPlus?: boolean;"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/plugins/NoteCommandPlugin.tsx",
+        "line": 22,
+        "column": 5
+      },
+      "text": "isCopilotPlus = false,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/chat-components/plugins/NoteCommandPlugin.tsx",
+        "line": 57,
+        "column": 55
+      },
+      "text": "const searchResults = useNoteSearch(currentQuery, isCopilotPlus, {}, currentActiveFile);"
+    },
+    {
+      "match": "copilotPlus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 51,
+        "column": 3
+      },
+      "text": "copilotPlus: {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 52,
+        "column": 13
+      },
+      "text": "title: \"Copilot Plus\","
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 68,
+        "column": 4
+      },
+      "text": "[ChainType.COPILOT_PLUS_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "copilotPlus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 68,
+        "column": 37
+      },
+      "text": "[ChainType.COPILOT_PLUS_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "copilotPlus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 68,
+        "column": 52
+      },
+      "text": "[ChainType.COPILOT_PLUS_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "copilotPlus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 68,
+        "column": 67
+      },
+      "text": "[ChainType.COPILOT_PLUS_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 69,
+        "column": 4
+      },
+      "text": "[ChainType.PROJECT_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "copilotPlus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 69,
+        "column": 32
+      },
+      "text": "[ChainType.PROJECT_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "copilotPlus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 69,
+        "column": 47
+      },
+      "text": "[ChainType.PROJECT_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "copilotPlus",
+      "location": {
+        "file": "src/components/chat-components/SuggestedPrompts.tsx",
+        "line": 69,
+        "column": 62
+      },
+      "text": "[ChainType.PROJECT_CHAIN]: [\"copilotPlus\", \"copilotPlus\", \"copilotPlus\"],"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 36,
+        "column": 13
+      },
+      "text": "import { useIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 41,
+        "column": 22
+      },
+      "text": "import { err2String, isPlusChain } from \"@/utils\";"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 130,
+        "column": 27
+      },
+      "text": "if (selectedChain !== ChainType.PROJECT_CHAIN) return false;"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 155,
+        "column": 9
+      },
+      "text": "const isPlusUser = useIsPlusUser();"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 155,
+        "column": 25
+      },
+      "text": "const isPlusUser = useIsPlusUser();"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 178,
+        "column": 30
+      },
+      "text": "if (hasUrlsInContext && !isPlusChain(currentChain)) {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 224,
+        "column": 15
+      },
+      "text": "urls: isPlusChain(currentChain) ? urls || [] : [],"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 590,
+        "column": 27
+      },
+      "text": "if (selectedChain === ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 689,
+        "column": 29
+      },
+      "text": "if (selectedChain === ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 714,
+        "column": 51
+      },
+      "text": "showHelperComponents={selectedChain !== ChainType.PROJECT_CHAIN}"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 747,
+        "column": 33
+      },
+      "text": "if (newMode === ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 772,
+        "column": 53
+      },
+      "text": "disableModelSwitch={selectedChain === ChainType.PROJECT_CHAIN}"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 789,
+        "column": 30
+      },
+      "text": "{selectedChain === ChainType.PROJECT_CHAIN && ("
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 790,
+        "column": 50
+      },
+      "text": "<div className={`${selectedChain === ChainType.PROJECT_CHAIN ? \"tw-z-modal\" : \"\"}`}>"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 805,
+        "column": 23
+      },
+      "text": "isPlusUser ? ChainType.COPILOT_PLUS_CHAIN : ChainType.LLM_CHAIN"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 805,
+        "column": 36
+      },
+      "text": "isPlusUser ? ChainType.COPILOT_PLUS_CHAIN : ChainType.LLM_CHAIN"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 816,
+        "column": 31
+      },
+      "text": "{(selectedChain !== ChainType.PROJECT_CHAIN ||"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/components/Chat.tsx",
+        "line": 817,
+        "column": 32
+      },
+      "text": "(selectedChain === ChainType.PROJECT_CHAIN && showChatUI)) &&"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/components/modals/AddContextNoteModal.tsx",
+        "line": 24,
+        "column": 17
+      },
+      "text": "chainType = ChainType.COPILOT_PLUS_CHAIN,"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/components/modals/BaseNoteModal.tsx",
+        "line": 10,
+        "column": 48
+      },
+      "text": "constructor(app: App, chainType: ChainType = ChainType.COPILOT_PLUS_CHAIN) {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 6,
+        "column": 10
+      },
+      "text": "import { isPlusModel, navigateToPlusPage } from \"@/plusUtils\";"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 7,
+        "column": 10
+      },
+      "text": "import { PLUS_UTM_MEDIUMS } from \"@/constants\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 11,
+        "column": 10
+      },
+      "text": "function CopilotPlusExpiredModalContent({ onCancel }: { onCancel: () => void }) {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 14,
+        "column": 5
+      },
+      "text": "isPlusModel(settings.defaultModelKey) && isPlusModel(settings.embeddingModelKey);"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 14,
+        "column": 46
+      },
+      "text": "isPlusModel(settings.defaultModelKey) && isPlusModel(settings.embeddingModelKey);"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 20,
+        "column": 16
+      },
+      "text": "Your Copilot Plus license key is no longer valid. Please renew your subscription to"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 21,
+        "column": 26
+      },
+      "text": "continue using Copilot Plus."
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 25,
+        "column": 17
+      },
+      "text": "The Copilot Plus exclusive models will stop working. You can switch to the default"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 37,
+        "column": 32
+      },
+      "text": "navigateToPlusPage(PLUS_UTM_MEDIUMS.EXPIRED_MODAL);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 47,
+        "column": 14
+      },
+      "text": "export class CopilotPlusExpiredModal extends Modal {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 54,
+        "column": 39
+      },
+      "text": "this.setTitle(\"Thanks for being a Copilot Plus user 👋\");"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+        "line": 65,
+        "column": 23
+      },
+      "text": "this.root.render(<CopilotPlusExpiredModalContent onCancel={handleCancel} />);"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 7,
+        "column": 19
+      },
+      "text": "DEFAULT_COPILOT_PLUS_CHAT_MODEL,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 8,
+        "column": 19
+      },
+      "text": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 9,
+        "column": 19
+      },
+      "text": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY,"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 15,
+        "column": 10
+      },
+      "text": "function CopilotPlusWelcomeModalContent({"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 27,
+        "column": 36
+      },
+      "text": "Thanks for purchasing <b>Copilot Plus</b>! You have unlocked the full power of Copilot,"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 32,
+        "column": 39
+      },
+      "text": "Would you like to apply the Copilot Plus settings now? You can always change this later in"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 37,
+        "column": 57
+      },
+      "text": "Default mode: <b className=\"tw-text-accent\">Copilot Plus</b>"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 40,
+        "column": 72
+      },
+      "text": "Chat model: <b className=\"tw-text-accent\">{DEFAULT_COPILOT_PLUS_CHAT_MODEL}</b>"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 45,
+        "column": 62
+      },
+      "text": "<b className=\"tw-text-accent\">{DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL}</b>"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 47,
+        "column": 61
+      },
+      "text": "{settings.embeddingModelKey !== DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY && ("
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 68,
+        "column": 14
+      },
+      "text": "export class CopilotPlusWelcomeModal extends Modal {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 75,
+        "column": 31
+      },
+      "text": "this.setTitle(\"Welcome to Copilot Plus 🚀\");"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+        "line": 92,
+        "column": 8
+      },
+      "text": "<CopilotPlusWelcomeModalContent onConfirm={handleConfirm} onCancel={handleCancel} />"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 122,
+        "column": 14
+      },
+      "text": "export const PLUS_UTM_MEDIUMS = {"
+    },
+    {
+      "match": "PlusUtm",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 128,
+        "column": 13
+      },
+      "text": "export type PlusUtmMedium = (typeof PLUS_UTM_MEDIUMS)[keyof typeof PLUS_UTM_MEDIUMS];"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 128,
+        "column": 37
+      },
+      "text": "export type PlusUtmMedium = (typeof PLUS_UTM_MEDIUMS)[keyof typeof PLUS_UTM_MEDIUMS];"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 128,
+        "column": 68
+      },
+      "text": "export type PlusUtmMedium = (typeof PLUS_UTM_MEDIUMS)[keyof typeof PLUS_UTM_MEDIUMS];"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 138,
+        "column": 11
+      },
+      "text": "COPILOT_PLUS_FLASH = \"copilot-plus-flash\","
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 203,
+        "column": 30
+      },
+      "text": "name: ChatModels.COPILOT_PLUS_FLASH,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 394,
+        "column": 11
+      },
+      "text": "COPILOT_PLUS_JINA = \"copilot-plus-jina\","
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 405,
+        "column": 11
+      },
+      "text": "COPILOT_PLUS_SMALL = \"copilot-plus-small\","
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 406,
+        "column": 11
+      },
+      "text": "COPILOT_PLUS_LARGE = \"copilot-plus-large\","
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 407,
+        "column": 11
+      },
+      "text": "COPILOT_PLUS_MULTILINGUAL = \"copilot-plus-multilingual\","
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 412,
+        "column": 35
+      },
+      "text": "name: EmbeddingModels.COPILOT_PLUS_SMALL,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 421,
+        "column": 35
+      },
+      "text": "name: EmbeddingModels.COPILOT_PLUS_LARGE,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 422,
+        "column": 47
+      },
+      "text": "provider: EmbeddingModelProviders.COPILOT_PLUS_JINA,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 432,
+        "column": 35
+      },
+      "text": "name: EmbeddingModels.COPILOT_PLUS_MULTILINGUAL,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 433,
+        "column": 47
+      },
+      "text": "provider: EmbeddingModelProviders.COPILOT_PLUS_JINA,"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 600,
+        "column": 13
+      },
+      "text": "label: \"Copilot Plus\","
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 605,
+        "column": 36
+      },
+      "text": "[EmbeddingModelProviders.COPILOT_PLUS_JINA]: {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 606,
+        "column": 13
+      },
+      "text": "label: \"Copilot Plus\","
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 623,
+        "column": 20
+      },
+      "text": "\"copilot-plus\": \"plusLicenseKey\","
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 711,
+        "column": 47
+      },
+      "text": "\"Non-markdown files are only available in Copilot Plus mode. Please upgrade to access this file type.\","
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 713,
+        "column": 42
+      },
+      "text": "\"URL processing is only available in Copilot Plus mode. URLs will not be processed for context.\","
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 720,
+        "column": 3
+      },
+      "text": "isPlusUser: false,"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/constants.ts",
+        "line": 721,
+        "column": 3
+      },
+      "text": "plusLicenseKey: \"\","
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/contextProcessor.dataview.test.ts",
+        "line": 6,
+        "column": 13
+      },
+      "text": "COPILOT_PLUS_CHAIN: \"copilot_plus\","
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/contextProcessor.ts",
+        "line": 5,
+        "column": 10
+      },
+      "text": "import { isPlusChain } from \"@/utils\";"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/contextProcessor.ts",
+        "line": 265,
+        "column": 14
+      },
+      "text": "if (!isPlusChain(currentChain) && note.extension !== \"md\" && note.extension !== \"canvas\") {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/contextProcessor.ts",
+        "line": 268,
+        "column": 51
+      },
+      "text": "`File type ${note.extension} requires Copilot Plus mode for context processing.`"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/contextProcessor.ts",
+        "line": 281,
+        "column": 15
+      },
+      "text": "if (isPlusChain(currentChain)) {"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/core/ChatManager.test.ts",
+        "line": 15,
+        "column": 13
+      },
+      "text": "COPILOT_PLUS_CHAIN: \"copilot_plus_chain\","
+    },
+    {
+      "match": "plus_",
+      "location": {
+        "file": "src/core/ChatManager.test.ts",
+        "line": 15,
+        "column": 34
+      },
+      "text": "COPILOT_PLUS_CHAIN: \"copilot_plus_chain\","
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/core/ContextManager.ts",
+        "line": 64,
+        "column": 48
+      },
+      "text": "// 2. Extract URLs and process them (for Copilot Plus chain)"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/core/ContextManager.ts",
+        "line": 70,
+        "column": 23
+      },
+      "text": "chainType === ChainType.COPILOT_PLUS_CHAIN"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/core/ContextManager.ts",
+        "line": 83,
+        "column": 23
+      },
+      "text": "chainType !== ChainType.PROJECT_CHAIN &&"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/encryptionService.ts",
+        "line": 44,
+        "column": 63
+      },
+      "text": "(key) => key.toLowerCase().includes(\"apikey\") || key === \"plusLicenseKey\""
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/hooks/useProjectContextStatus.ts",
+        "line": 24,
+        "column": 26
+      },
+      "text": "if (currentChain !== ChainType.PROJECT_CHAIN) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/integration_tests/AgentPrompt.test.ts",
+        "line": 30,
+        "column": 32
+      },
+      "text": "jest.mock(\"@/components/modals/CopilotPlusExpiredModal\", () => ({"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/integration_tests/AgentPrompt.test.ts",
+        "line": 31,
+        "column": 3
+      },
+      "text": "CopilotPlusExpiredModal: class CopilotPlusExpiredModal {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/integration_tests/AgentPrompt.test.ts",
+        "line": 31,
+        "column": 34
+      },
+      "text": "CopilotPlusExpiredModal: class CopilotPlusExpiredModal {"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/integration_tests/AgentPrompt.test.ts",
+        "line": 80,
+        "column": 13
+      },
+      "text": "COPILOT_PLUS_CHAIN: \"copilot_plus\","
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "line": 110,
+        "column": 24
+      },
+      "text": "if (!getSettings().plusLicenseKey) {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "line": 112,
+        "column": 10
+      },
+      "text": "\"Copilot Plus license key not found. Please enter your license key in the settings.\""
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "line": 147,
+        "column": 72
+      },
+      "text": "Authorization: `Bearer ${await getDecryptedKey(getSettings().plusLicenseKey)}`,"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "line": 188,
+        "column": 72
+      },
+      "text": "Authorization: `Bearer ${await getDecryptedKey(getSettings().plusLicenseKey)}`,"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "line": 213,
+        "column": 46
+      },
+      "text": "* Validate the license key and update the isPlusUser setting."
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/brevilabsClient.ts",
+        "line": 223,
+        "column": 56
+      },
+      "text": "license_key: await getDecryptedKey(getSettings().plusLicenseKey),"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 13,
+        "column": 3
+      },
+      "text": "CopilotPlusChainRunner,"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 119,
+        "column": 23
+      },
+      "text": "if (chainType === ChainType.PROJECT_CHAIN && !currentProject) {"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 124,
+        "column": 21
+      },
+      "text": "chainType === ChainType.PROJECT_CHAIN ? currentProject?.projectModelKey : getModelKey();"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 142,
+        "column": 27
+      },
+      "text": "if (chainType === ChainType.PROJECT_CHAIN && !customModel.projectEnabled) {"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 248,
+        "column": 12
+      },
+      "text": "case ChainType.COPILOT_PLUS_CHAIN: {"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 258,
+        "column": 22
+      },
+      "text": "setChainType(ChainType.COPILOT_PLUS_CHAIN);"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 262,
+        "column": 12
+      },
+      "text": "case ChainType.PROJECT_CHAIN: {"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 271,
+        "column": 22
+      },
+      "text": "setChainType(ChainType.PROJECT_CHAIN);"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 290,
+        "column": 12
+      },
+      "text": "case ChainType.COPILOT_PLUS_CHAIN:"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 295,
+        "column": 20
+      },
+      "text": "return new CopilotPlusChainRunner(this);"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/chainManager.ts",
+        "line": 296,
+        "column": 12
+      },
+      "text": "case ChainType.PROJECT_CHAIN:"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 4,
+        "column": 15
+      },
+      "text": "import { checkIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 14,
+        "column": 10
+      },
+      "text": "import { CopilotPlusChainRunner } from \"./CopilotPlusChainRunner\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 14,
+        "column": 43
+      },
+      "text": "import { CopilotPlusChainRunner } from \"./CopilotPlusChainRunner\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 113,
+        "column": 49
+      },
+      "text": "export class AutonomousAgentChainRunner extends CopilotPlusChainRunner {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 254,
+        "column": 11
+      },
+      "text": "const isPlusUser = await checkIsPlusUser({"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 254,
+        "column": 35
+      },
+      "text": "const isPlusUser = await checkIsPlusUser({"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 257,
+        "column": 10
+      },
+      "text": "if (!isPlusUser) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+        "line": 288,
+        "column": 38
+      },
+      "text": "const fallbackRunner = new CopilotPlusChainRunner(this.chainManager);"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/BaseChainRunner.ts",
+        "line": 138,
+        "column": 31
+      },
+      "text": "errorMessage = \"Invalid Copilot Plus license key. Please check your license key in settings.\";"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 17,
+        "column": 15
+      },
+      "text": "import { checkIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 54,
+        "column": 14
+      },
+      "text": "export class CopilotPlusChainRunner extends BaseChainRunner {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 349,
+        "column": 18
+      },
+      "text": "logInfo(\"CopilotPlus multimodal stream iteration aborted\", {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 385,
+        "column": 11
+      },
+      "text": "const isPlusUser = await checkIsPlusUser({"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 385,
+        "column": 35
+      },
+      "text": "const isPlusUser = await checkIsPlusUser({"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 386,
+        "column": 9
+      },
+      "text": "isCopilotPlus: true,"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 388,
+        "column": 10
+      },
+      "text": "if (!isPlusUser) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+        "line": 495,
+        "column": 18
+      },
+      "text": "logInfo(\"CopilotPlus stream aborted by user\", { reason: abortController.signal.reason });"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/index.ts",
+        "line": 6,
+        "column": 10
+      },
+      "text": "export { CopilotPlusChainRunner } from \"./CopilotPlusChainRunner\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/index.ts",
+        "line": 6,
+        "column": 43
+      },
+      "text": "export { CopilotPlusChainRunner } from \"./CopilotPlusChainRunner\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/ProjectChainRunner.ts",
+        "line": 4,
+        "column": 10
+      },
+      "text": "import { CopilotPlusChainRunner } from \"./CopilotPlusChainRunner\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/ProjectChainRunner.ts",
+        "line": 4,
+        "column": 43
+      },
+      "text": "import { CopilotPlusChainRunner } from \"./CopilotPlusChainRunner\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/ProjectChainRunner.ts",
+        "line": 6,
+        "column": 41
+      },
+      "text": "export class ProjectChainRunner extends CopilotPlusChainRunner {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/modelAdapter.ts",
+        "line": 865,
+        "column": 8
+      },
+      "text": "// Copilot Plus models"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/modelAdapter.ts",
+        "line": 867,
+        "column": 43
+      },
+      "text": "logInfo(\"Using BaseModelAdapter for Copilot Plus\");"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 7,
+        "column": 8
+      },
+      "text": "checkIsPlusUser: jest.fn(),"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 22,
+        "column": 15
+      },
+      "text": "import { checkIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 26,
+        "column": 18
+      },
+      "text": "const mockCheckIsPlusUser = checkIsPlusUser as jest.MockedFunction<typeof checkIsPlusUser>;"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 26,
+        "column": 36
+      },
+      "text": "const mockCheckIsPlusUser = checkIsPlusUser as jest.MockedFunction<typeof checkIsPlusUser>;"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 26,
+        "column": 82
+      },
+      "text": "const mockCheckIsPlusUser = checkIsPlusUser as jest.MockedFunction<typeof checkIsPlusUser>;"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 34,
+        "column": 38
+      },
+      "text": "it(\"should execute tools without isPlusOnly flag\", async () => {"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 54,
+        "column": 23
+      },
+      "text": "expect(mockCheckIsPlusUser).not.toHaveBeenCalled();"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 63,
+        "column": 9
+      },
+      "text": "isPlusOnly: true,"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 66,
+        "column": 16
+      },
+      "text": "mockCheckIsPlusUser.mockResolvedValueOnce(false);"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 72,
+        "column": 45
+      },
+      "text": "result: \"Error: plusTool requires a Copilot Plus subscription\","
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 84,
+        "column": 9
+      },
+      "text": "isPlusOnly: true,"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 87,
+        "column": 16
+      },
+      "text": "mockCheckIsPlusUser.mockResolvedValueOnce(true);"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+        "line": 97,
+        "column": 23
+      },
+      "text": "expect(mockCheckIsPlusUser).toHaveBeenCalled();"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+        "line": 2,
+        "column": 15
+      },
+      "text": "import { checkIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+        "line": 52,
+        "column": 14
+      },
+      "text": "if (tool.isPlusOnly) {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+        "line": 53,
+        "column": 13
+      },
+      "text": "const isPlusUser = await checkIsPlusUser();"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+        "line": 53,
+        "column": 37
+      },
+      "text": "const isPlusUser = await checkIsPlusUser();"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+        "line": 54,
+        "column": 12
+      },
+      "text": "if (!isPlusUser) {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+        "line": 57,
+        "column": 75
+      },
+      "text": "result: `Error: ${getToolDisplayName(toolCall.name)} requires a Copilot Plus subscription`,"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/chatModelManager.ts",
+        "line": 83,
+        "column": 60
+      },
+      "text": "[ChatModelProviders.COPILOT_PLUS]: () => getSettings().plusLicenseKey,"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/chatModelManager.ts",
+        "line": 285,
+        "column": 48
+      },
+      "text": "apiKey: await getDecryptedKey(settings.plusLicenseKey),"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 22,
+        "column": 36
+      },
+      "text": "[EmbeddingModelProviders.COPILOT_PLUS_JINA]: CustomJinaEmbeddings,"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 48,
+        "column": 65
+      },
+      "text": "[EmbeddingModelProviders.COPILOT_PLUS]: () => getSettings().plusLicenseKey,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 49,
+        "column": 38
+      },
+      "text": "[EmbeddingModelProviders.COPILOT_PLUS_JINA]: () => getSettings().plusLicenseKey,"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 49,
+        "column": 70
+      },
+      "text": "[EmbeddingModelProviders.COPILOT_PLUS_JINA]: () => getSettings().plusLicenseKey,"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 146,
+        "column": 53
+      },
+      "text": "if (customModel.plusExclusive && !getSettings().isPlusUser) {"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 209,
+        "column": 48
+      },
+      "text": "apiKey: await getDecryptedKey(settings.plusLicenseKey),"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 217,
+        "column": 40
+      },
+      "text": "[EmbeddingModelProviders.COPILOT_PLUS_JINA]: {"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/LLMProviders/embeddingManager.ts",
+        "line": 219,
+        "column": 48
+      },
+      "text": "apiKey: await getDecryptedKey(settings.plusLicenseKey),"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/LLMProviders/intentAnalyzer.ts",
+        "line": 88,
+        "column": 58
+      },
+      "text": "throw error; // Re-throw the error to be caught by CopilotPlusChainRunner"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/LLMProviders/projectManager.ts",
+        "line": 67,
+        "column": 30
+      },
+      "text": "getChainType() === ChainType.COPILOT_PLUS_CHAIN);"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/main.ts",
+        "line": 22,
+        "column": 15
+      },
+      "text": "import { checkIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/main.ts",
+        "line": 84,
+        "column": 10
+      },
+      "text": "checkIsPlusUser();"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 3,
+        "column": 10
+      },
+      "text": "import { CopilotPlusExpiredModal } from \"@/components/modals/CopilotPlusExpiredModal\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 3,
+        "column": 62
+      },
+      "text": "import { CopilotPlusExpiredModal } from \"@/components/modals/CopilotPlusExpiredModal\";"
+    },
+    {
+      "match": "PlusUtm",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 10,
+        "column": 3
+      },
+      "text": "PlusUtmMedium,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 17,
+        "column": 30
+      },
+      "text": "export const DEFAULT_COPILOT_PLUS_CHAT_MODEL = ChatModels.COPILOT_PLUS_FLASH;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 17,
+        "column": 67
+      },
+      "text": "export const DEFAULT_COPILOT_PLUS_CHAT_MODEL = ChatModels.COPILOT_PLUS_FLASH;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 18,
+        "column": 30
+      },
+      "text": "export const DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY ="
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 19,
+        "column": 19
+      },
+      "text": "DEFAULT_COPILOT_PLUS_CHAT_MODEL + \"|\" + ChatModelProviders.COPILOT_PLUS;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 20,
+        "column": 30
+      },
+      "text": "export const DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL = EmbeddingModels.COPILOT_PLUS_SMALL;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 20,
+        "column": 77
+      },
+      "text": "export const DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL = EmbeddingModels.COPILOT_PLUS_SMALL;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 21,
+        "column": 30
+      },
+      "text": "export const DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY ="
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 22,
+        "column": 19
+      },
+      "text": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL + \"|\" + EmbeddingModelProviders.COPILOT_PLUS;"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 28,
+        "column": 33
+      },
+      "text": "/** Check if the model key is a Copilot Plus model. */"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 29,
+        "column": 17
+      },
+      "text": "export function isPlusModel(modelKey: string): boolean {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 33,
+        "column": 21
+      },
+      "text": "/** Hook to get the isPlusUser setting. */"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 34,
+        "column": 20
+      },
+      "text": "export function useIsPlusUser(): boolean | undefined {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 36,
+        "column": 19
+      },
+      "text": "return settings.isPlusUser;"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 40,
+        "column": 28
+      },
+      "text": "export async function checkIsPlusUser(context?: Record<string, any>): Promise<boolean | undefined> {"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 41,
+        "column": 22
+      },
+      "text": "if (!getSettings().plusLicenseKey) {"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 52,
+        "column": 22
+      },
+      "text": "if (!getSettings().plusLicenseKey) {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 61,
+        "column": 14
+      },
+      "text": "* Apply the Copilot Plus settings."
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 66,
+        "column": 43
+      },
+      "text": "const defaultModelKey = DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 67,
+        "column": 45
+      },
+      "text": "const embeddingModelKey = DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY;"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 77,
+        "column": 16
+      },
+      "text": "setChainType(ChainType.COPILOT_PLUS_CHAIN);"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 81,
+        "column": 23
+      },
+      "text": "defaultChainType: ChainType.COPILOT_PLUS_CHAIN,"
+    },
+    {
+      "match": "PlusUtm",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 102,
+        "column": 43
+      },
+      "text": "export function createPlusPageUrl(medium: PlusUtmMedium): string {"
+    },
+    {
+      "match": "PlusUtm",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 106,
+        "column": 44
+      },
+      "text": "export function navigateToPlusPage(medium: PlusUtmMedium): void {"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 111,
+        "column": 18
+      },
+      "text": "updateSetting(\"isPlusUser\", true);"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 116,
+        "column": 99
+      },
+      "text": "* IMPORTANT: This is called on every plugin start for users without a Plus license key (see checkIsPlusUser)."
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 118,
+        "column": 20
+      },
+      "text": "* Only update the isPlusUser flag."
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 121,
+        "column": 17
+      },
+      "text": "const previousIsPlusUser = getSettings().isPlusUser;"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 121,
+        "column": 44
+      },
+      "text": "const previousIsPlusUser = getSettings().isPlusUser;"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 122,
+        "column": 18
+      },
+      "text": "updateSetting(\"isPlusUser\", false);"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 123,
+        "column": 15
+      },
+      "text": "if (previousIsPlusUser) {"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/plusUtils.ts",
+        "line": 124,
+        "column": 9
+      },
+      "text": "new CopilotPlusExpiredModal(app).open();"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/search/indexEventHandler.ts",
+        "line": 44,
+        "column": 16
+      },
+      "text": "logInfo(\"Copilot Plus: Initializing semantic index event listeners\");"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/search/indexEventHandler.ts",
+        "line": 80,
+        "column": 30
+      },
+      "text": "if (currentChainType !== ChainType.COPILOT_PLUS_CHAIN) {"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/search/indexEventHandler.ts",
+        "line": 127,
+        "column": 22
+      },
+      "text": "console.log(\"Copilot Plus: Triggering reindex for file \", file.path);"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/settings/model.ts",
+        "line": 51,
+        "column": 3
+      },
+      "text": "plusLicenseKey: string;"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/settings/model.ts",
+        "line": 136,
+        "column": 3
+      },
+      "text": "isPlusUser: boolean | undefined;"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/settings/v2/components/BasicSettings.tsx",
+        "line": 7,
+        "column": 29
+      },
+      "text": "import { DEFAULT_OPEN_AREA, PLUS_UTM_MEDIUMS } from \"@/constants\";"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/settings/v2/components/BasicSettings.tsx",
+        "line": 21,
+        "column": 4
+      },
+      "text": "[ChainType.COPILOT_PLUS_CHAIN]: \"Copilot Plus\","
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/settings/v2/components/BasicSettings.tsx",
+        "line": 21,
+        "column": 36
+      },
+      "text": "[ChainType.COPILOT_PLUS_CHAIN]: \"Copilot Plus\","
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/settings/v2/components/BasicSettings.tsx",
+        "line": 22,
+        "column": 4
+      },
+      "text": "[ChainType.PROJECT_CHAIN]: \"Projects (alpha)\","
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/settings/v2/components/BasicSettings.tsx",
+        "line": 198,
+        "column": 35
+      },
+      "text": "<strong>Copilot Plus:</strong> Covers all features of the 2 free modes,"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/settings/v2/components/BasicSettings.tsx",
+        "line": 202,
+        "column": 53
+      },
+      "text": "href={createPlusPageUrl(PLUS_UTM_MEDIUMS.MODE_SELECT_TOOLTIP)}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/settings/v2/components/CopilotPlusSettings.tsx",
+        "line": 7,
+        "column": 14
+      },
+      "text": "export const CopilotPlusSettings: React.FC = () => {"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/settings/v2/components/ModelAddDialog.tsx",
+        "line": 462,
+        "column": 79
+      },
+      "text": "? omit(EmbeddingModelProviders, [\"COPILOT_PLUS\", \"COPILOT_PLUS_JINA\"])"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 1,
+        "column": 10
+      },
+      "text": "import { CopilotPlusWelcomeModal } from \"@/components/modals/CopilotPlusWelcomeModal\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 1,
+        "column": 62
+      },
+      "text": "import { CopilotPlusWelcomeModal } from \"@/components/modals/CopilotPlusWelcomeModal\";"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 5,
+        "column": 10
+      },
+      "text": "import { PLUS_UTM_MEDIUMS } from \"@/constants\";"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 6,
+        "column": 15
+      },
+      "text": "import { checkIsPlusUser, navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 6,
+        "column": 50
+      },
+      "text": "import { checkIsPlusUser, navigateToPlusPage, useIsPlusUser } from \"@/plusUtils\";"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 15,
+        "column": 9
+      },
+      "text": "const isPlusUser = useIsPlusUser();"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 15,
+        "column": 25
+      },
+      "text": "const isPlusUser = useIsPlusUser();"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 16,
+        "column": 67
+      },
+      "text": "const [localLicenseKey, setLocalLicenseKey] = useState(settings.plusLicenseKey);"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 18,
+        "column": 33
+      },
+      "text": "setLocalLicenseKey(settings.plusLicenseKey);"
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 19,
+        "column": 16
+      },
+      "text": "}, [settings.plusLicenseKey]);"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 24,
+        "column": 15
+      },
+      "text": "<span>Copilot Plus</span>"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 25,
+        "column": 10
+      },
+      "text": "{isPlusUser && ("
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 33,
+        "column": 11
+      },
+      "text": "Copilot Plus takes your Obsidian experience to the next level with cutting-edge AI"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 42,
+        "column": 11
+      },
+      "text": "Copilot Plus is evolving fast, with new features and improvements rolling out regularly."
+    },
+    {
+      "match": "plusLicense",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 58,
+        "column": 28
+      },
+      "text": "updateSetting(\"plusLicenseKey\", localLicenseKey);"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 60,
+        "column": 39
+      },
+      "text": "const result = await checkIsPlusUser();"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 66,
+        "column": 19
+      },
+      "text": "new CopilotPlusWelcomeModal(app).open();"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/settings/v2/components/PlusSettings.tsx",
+        "line": 76,
+        "column": 45
+      },
+      "text": "onClick={() => navigateToPlusPage(PLUS_UTM_MEDIUMS.SETTINGS)}"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/settings/v2/SettingsMainV2.tsx",
+        "line": 13,
+        "column": 10
+      },
+      "text": "import { CopilotPlusSettings } from \"./components/CopilotPlusSettings\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/settings/v2/SettingsMainV2.tsx",
+        "line": 13,
+        "column": 51
+      },
+      "text": "import { CopilotPlusSettings } from \"./components/CopilotPlusSettings\";"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/settings/v2/SettingsMainV2.tsx",
+        "line": 36,
+        "column": 16
+      },
+      "text": "plus: () => <CopilotPlusSettings />,"
+    },
+    {
+      "match": "IsPlus",
+      "location": {
+        "file": "src/tests/projectContextCache.test.ts",
+        "line": 48,
+        "column": 6
+      },
+      "text": "useIsPlusUser: jest.fn(),"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/tools/SearchTools.ts",
+        "line": 282,
+        "column": 3
+      },
+      "text": "isPlusOnly: true,"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/tools/SimpleTool.ts",
+        "line": 27,
+        "column": 3
+      },
+      "text": "isPlusOnly?: boolean; // If true, tool requires Plus subscription"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/tools/SimpleTool.ts",
+        "line": 42,
+        "column": 3
+      },
+      "text": "isPlusOnly?: boolean;"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/tools/SimpleTool.ts",
+        "line": 103,
+        "column": 5
+      },
+      "text": "isPlusOnly: options.isPlusOnly,"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/tools/SimpleTool.ts",
+        "line": 103,
+        "column": 25
+      },
+      "text": "isPlusOnly: options.isPlusOnly,"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/tools/YoutubeTools.ts",
+        "line": 17,
+        "column": 3
+      },
+      "text": "isPlusOnly: true,"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 33,
+        "column": 14
+      },
+      "text": "\"Invalid Copilot Plus license key. Please check your license key in settings.\","
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 197,
+        "column": 14
+      },
+      "text": "return ChainType.COPILOT_PLUS_CHAIN;"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 329,
+        "column": 49
+      },
+      "text": "* Checks if a chain type is a Plus mode chain (Copilot Plus or Project Chain)."
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 334,
+        "column": 17
+      },
+      "text": "export function isPlusChain(chainType: ChainType): boolean {"
+    },
+    {
+      "match": "ChainType.COPILOT_PLUS_CHAIN",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 335,
+        "column": 24
+      },
+      "text": "return chainType === ChainType.COPILOT_PLUS_CHAIN || chainType === ChainType.PROJECT_CHAIN;"
+    },
+    {
+      "match": "ChainType.PROJECT_CHAIN",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 335,
+        "column": 70
+      },
+      "text": "return chainType === ChainType.COPILOT_PLUS_CHAIN || chainType === ChainType.PROJECT_CHAIN;"
+    },
+    {
+      "match": "isPlus",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 357,
+        "column": 10
+      },
+      "text": "return isPlusChain(chainType);"
+    },
+    {
+      "match": "CopilotPlus",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 450,
+        "column": 33
+      },
+      "text": "* Note: For multimodal chains (CopilotPlus, AutonomousAgent), use"
+    },
+    {
+      "match": "Copilot Plus",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 795,
+        "column": 66
+      },
+      "text": "return baseLabel + (model?.believerExclusive && baseLabel === \"Copilot Plus\" ? \"(Believer)\" : \"\");"
+    },
+    {
+      "match": "PLUS_",
+      "location": {
+        "file": "src/utils.ts",
+        "line": 983,
+        "column": 37
+      },
+      "text": "EmbeddingModelProviders.COPILOT_PLUS_JINA,"
+    }
+  ],
+  "fileSummary": [
+    {
+      "file": "src/plusUtils.ts",
+      "symbolReferenceCount": 9,
+      "patternMatchCount": 34,
+      "symbols": [
+        "BrevilabsClient",
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
+        "applyPlusSettings",
+        "checkIsPlusUser",
+        "createPlusPageUrl",
+        "isPlusModel",
+        "navigateToPlusPage",
+        "turnOffPlus",
+        "turnOnPlus",
+        "useIsPlusUser"
+      ],
+      "categories": ["licensing", "marketing", "model-selection"]
+    },
+    {
+      "file": "src/LLMProviders/brevilabsClient.ts",
+      "symbolReferenceCount": 23,
+      "patternMatchCount": 6,
+      "symbols": [
+        "AutocompleteResponse",
+        "BrevilabsClient",
+        "BrocaResponse",
+        "Docs4llmResponse",
+        "LicenseResponse",
+        "Pdf4llmResponse",
+        "RerankResponse",
+        "ToolCall",
+        "Url4llmResponse",
+        "WebSearchResponse",
+        "WordCompleteResponse",
+        "Youtube4llmResponse",
+        "turnOffPlus",
+        "turnOnPlus"
+      ],
+      "categories": ["autocomplete", "context", "integrations", "licensing", "pdf", "tools"]
+    },
+    {
+      "file": "src/components/chat-components/ChatInput.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 26,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/settings/v2/components/PlusSettings.tsx",
+      "symbolReferenceCount": 6,
+      "patternMatchCount": 18,
+      "symbols": ["checkIsPlusUser", "navigateToPlusPage", "useIsPlusUser"],
+      "categories": ["licensing", "marketing"]
+    },
+    {
+      "file": "src/components/chat-components/ChatControls.tsx",
+      "symbolReferenceCount": 5,
+      "patternMatchCount": 18,
+      "symbols": ["navigateToPlusPage", "useIsPlusUser"],
+      "categories": ["licensing", "marketing"]
+    },
+    {
+      "file": "src/constants.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 23,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+      "symbolReferenceCount": 8,
+      "patternMatchCount": 13,
+      "symbols": [
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
+        "applyPlusSettings"
+      ],
+      "categories": ["licensing", "model-selection"]
+    },
+    {
+      "file": "src/components/Chat.tsx",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 18,
+      "symbols": ["useIsPlusUser"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+      "symbolReferenceCount": 5,
+      "patternMatchCount": 12,
+      "symbols": ["isPlusModel", "navigateToPlusPage"],
+      "categories": ["marketing", "model-selection"]
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+      "symbolReferenceCount": 3,
+      "patternMatchCount": 13,
+      "symbols": ["checkIsPlusUser"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/LLMProviders/chainManager.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 11,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/chat-components/SuggestedPrompts.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 10,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 8,
+      "symbols": ["checkIsPlusUser"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 8,
+      "symbols": ["checkIsPlusUser"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/LLMProviders/embeddingManager.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 8,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/utils.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 10,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/chat-components/ChatToolControls.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 9,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/commands/index.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 6,
+      "symbols": ["checkIsPlusUser"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 6,
+      "symbols": ["checkIsPlusUser"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/settings/v2/components/BasicSettings.tsx",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 6,
+      "symbols": ["createPlusPageUrl"],
+      "categories": ["marketing"]
+    },
+    {
+      "file": "src/components/chat-components/hooks/useAtMentionCategories.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 7,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/main.ts",
+      "symbolReferenceCount": 5,
+      "patternMatchCount": 2,
+      "symbols": ["BrevilabsClient", "checkIsPlusUser"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/components/chat-components/ChatContextMenu.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 6,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/chat-components/LexicalEditor.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 6,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/projectManager.ts",
+      "symbolReferenceCount": 5,
+      "patternMatchCount": 1,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/tools/FileParserManager.ts",
+      "symbolReferenceCount": 6,
+      "patternMatchCount": 0,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/components/chat-components/hooks/useAllNotes.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 5,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/mentions/Mention.ts",
+      "symbolReferenceCount": 5,
+      "patternMatchCount": 0,
+      "symbols": ["BrevilabsClient", "Url4llmResponse"],
+      "categories": ["licensing", "tools"]
+    },
+    {
+      "file": "src/components/chat-components/AtMentionTypeahead.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 4,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/chat-components/hooks/useAtMentionSearch.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 4,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/chat-components/hooks/useNoteSearch.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 4,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/chat-components/plugins/AtMentionCommandPlugin.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 4,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/contextProcessor.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 4,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/integration_tests/AgentPrompt.test.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 4,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/tools/SimpleTool.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 4,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/cache/pdfCache.ts",
+      "symbolReferenceCount": 3,
+      "patternMatchCount": 0,
+      "symbols": ["Pdf4llmResponse"],
+      "categories": ["pdf"]
+    },
+    {
+      "file": "src/components/chat-components/plugins/NoteCommandPlugin.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 3,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/core/ContextManager.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 3,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/ProjectChainRunner.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 3,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/intentAnalyzer.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 1,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/search/indexEventHandler.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 3,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/settings/v2/SettingsMainV2.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 3,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/tools/SearchTools.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 1,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/tools/YoutubeTools.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 1,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/components/modals/YoutubeTranscriptModal.tsx",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 0,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/core/ChatManager.test.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 2,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/index.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 2,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/utils/modelAdapter.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 2,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/chatModelManager.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 2,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/search/hybridRetriever.ts",
+      "symbolReferenceCount": 2,
+      "patternMatchCount": 0,
+      "symbols": ["BrevilabsClient"],
+      "categories": ["licensing"]
+    },
+    {
+      "file": "src/settings/model.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 2,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/aiParams.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/chainFactory.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/modals/AddContextNoteModal.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/components/modals/BaseNoteModal.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/contextProcessor.dataview.test.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/encryptionService.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/hooks/useProjectContextStatus.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/BaseChainRunner.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/settings/v2/components/CopilotPlusSettings.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/settings/v2/components/ModelAddDialog.tsx",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    },
+    {
+      "file": "src/tests/projectContextCache.test.ts",
+      "symbolReferenceCount": 0,
+      "patternMatchCount": 1,
+      "symbols": [],
+      "categories": []
+    }
+  ],
+  "categorySummary": [
+    {
+      "category": "licensing",
+      "symbolCount": 7,
+      "referenceCount": 61
+    },
+    {
+      "category": "model-selection",
+      "symbolCount": 5,
+      "referenceCount": 13
+    },
+    {
+      "category": "tools",
+      "symbolCount": 5,
+      "referenceCount": 10
+    },
+    {
+      "category": "marketing",
+      "symbolCount": 2,
+      "referenceCount": 10
+    },
+    {
+      "category": "pdf",
+      "symbolCount": 1,
+      "referenceCount": 5
+    },
+    {
+      "category": "autocomplete",
+      "symbolCount": 2,
+      "referenceCount": 4
+    },
+    {
+      "category": "context",
+      "symbolCount": 1,
+      "referenceCount": 2
+    },
+    {
+      "category": "integrations",
+      "symbolCount": 1,
+      "referenceCount": 2
+    }
+  ],
+  "missingTargets": []
+}

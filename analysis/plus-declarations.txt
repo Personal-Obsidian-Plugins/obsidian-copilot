@@ -1,0 +1,29 @@
+# Plus Declaration Index
+
+## src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration AutocompleteResponse refs=2 categories=autocomplete tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- ClassDeclaration BrevilabsClient refs=32 categories=licensing tags=client,remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration BrocaResponse refs=2 categories=tools tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration Docs4llmResponse refs=2 categories=context tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration LicenseResponse refs=1 categories=licensing tags=status match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration Pdf4llmResponse refs=5 categories=pdf tags=migrate match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration RerankResponse refs=2 categories=tools tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration ToolCall refs=0 categories=tools tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration Url4llmResponse refs=4 categories=tools tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration WebSearchResponse refs=2 categories=tools tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration WordCompleteResponse refs=2 categories=autocomplete tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+- InterfaceDeclaration Youtube4llmResponse refs=2 categories=integrations tags=remove match=exact sources=src/LLMProviders/brevilabsClient.ts
+
+## src/plusUtils.ts
+- FunctionDeclaration applyPlusSettings refs=2 categories=licensing tags=settings,side-effects match=exact sources=src/plusUtils.ts
+- FunctionDeclaration checkIsPlusUser refs=15 categories=licensing tags=validation match=exact sources=src/plusUtils.ts
+- FunctionDeclaration createPlusPageUrl refs=3 categories=marketing tags=urls match=exact sources=src/plusUtils.ts
+- VariableDeclaration DEFAULT_COPILOT_PLUS_CHAT_MODEL refs=3 categories=model-selection tags=defaults match=prefix sources=src/plusUtils.ts
+- VariableDeclaration DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY refs=1 categories=model-selection tags=defaults match=prefix sources=src/plusUtils.ts
+- VariableDeclaration DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL refs=3 categories=model-selection tags=defaults match=prefix sources=src/plusUtils.ts
+- VariableDeclaration DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY refs=3 categories=model-selection tags=defaults match=prefix sources=src/plusUtils.ts
+- FunctionDeclaration isPlusModel refs=3 categories=model-selection tags=models match=exact sources=src/plusUtils.ts
+- FunctionDeclaration navigateToPlusPage refs=7 categories=marketing tags=ui,navigation match=exact sources=src/plusUtils.ts
+- FunctionDeclaration turnOffPlus refs=3 categories=licensing tags=status,settings match=exact sources=src/plusUtils.ts
+- FunctionDeclaration turnOnPlus refs=2 categories=licensing tags=status,settings match=exact sources=src/plusUtils.ts
+- FunctionDeclaration useIsPlusUser refs=6 categories=licensing tags=hooks match=exact sources=src/plusUtils.ts

@@ -1,0 +1,394 @@
+{
+  "generatedAt": "2025-10-21T23:59:10.489Z",
+  "nodes": [
+    {
+      "file": "src/LLMProviders/brevilabsClient.ts",
+      "categories": ["autocomplete", "context", "integrations", "licensing", "pdf", "tools"],
+      "symbols": [
+        "AutocompleteResponse",
+        "BrevilabsClient",
+        "BrocaResponse",
+        "Docs4llmResponse",
+        "LicenseResponse",
+        "Pdf4llmResponse",
+        "RerankResponse",
+        "ToolCall",
+        "Url4llmResponse",
+        "WebSearchResponse",
+        "WordCompleteResponse",
+        "Youtube4llmResponse",
+        "turnOffPlus",
+        "turnOnPlus"
+      ],
+      "inbound": 56,
+      "outbound": 23
+    },
+    {
+      "file": "src/plusUtils.ts",
+      "categories": ["licensing", "marketing", "model-selection"],
+      "symbols": [
+        "BrevilabsClient",
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
+        "applyPlusSettings",
+        "checkIsPlusUser",
+        "createPlusPageUrl",
+        "isPlusModel",
+        "navigateToPlusPage",
+        "turnOffPlus",
+        "turnOnPlus",
+        "useIsPlusUser"
+      ],
+      "inbound": 51,
+      "outbound": 9
+    },
+    {
+      "file": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+      "categories": ["licensing", "model-selection"],
+      "symbols": [
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
+        "applyPlusSettings"
+      ],
+      "inbound": 0,
+      "outbound": 8
+    },
+    {
+      "file": "src/settings/v2/components/PlusSettings.tsx",
+      "categories": ["licensing", "marketing"],
+      "symbols": ["checkIsPlusUser", "navigateToPlusPage", "useIsPlusUser"],
+      "inbound": 0,
+      "outbound": 6
+    },
+    {
+      "file": "src/tools/FileParserManager.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 6
+    },
+    {
+      "file": "src/components/chat-components/ChatControls.tsx",
+      "categories": ["licensing", "marketing"],
+      "symbols": ["navigateToPlusPage", "useIsPlusUser"],
+      "inbound": 0,
+      "outbound": 5
+    },
+    {
+      "file": "src/components/modals/CopilotPlusExpiredModal.tsx",
+      "categories": ["marketing", "model-selection"],
+      "symbols": ["isPlusModel", "navigateToPlusPage"],
+      "inbound": 0,
+      "outbound": 5
+    },
+    {
+      "file": "src/LLMProviders/projectManager.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 5
+    },
+    {
+      "file": "src/main.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient", "checkIsPlusUser"],
+      "inbound": 0,
+      "outbound": 5
+    },
+    {
+      "file": "src/mentions/Mention.ts",
+      "categories": ["licensing", "tools"],
+      "symbols": ["BrevilabsClient", "Url4llmResponse"],
+      "inbound": 0,
+      "outbound": 5
+    },
+    {
+      "file": "src/cache/pdfCache.ts",
+      "categories": ["pdf"],
+      "symbols": ["Pdf4llmResponse"],
+      "inbound": 0,
+      "outbound": 3
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+      "categories": ["licensing"],
+      "symbols": ["checkIsPlusUser"],
+      "inbound": 0,
+      "outbound": 3
+    },
+    {
+      "file": "src/commands/index.ts",
+      "categories": ["licensing"],
+      "symbols": ["checkIsPlusUser"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/components/Chat.tsx",
+      "categories": ["licensing"],
+      "symbols": ["useIsPlusUser"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/components/modals/YoutubeTranscriptModal.tsx",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+      "categories": ["licensing"],
+      "symbols": ["checkIsPlusUser"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+      "categories": ["licensing"],
+      "symbols": ["checkIsPlusUser"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+      "categories": ["licensing"],
+      "symbols": ["checkIsPlusUser"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/LLMProviders/embeddingManager.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/LLMProviders/intentAnalyzer.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/search/hybridRetriever.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/settings/v2/components/BasicSettings.tsx",
+      "categories": ["marketing"],
+      "symbols": ["createPlusPageUrl"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/tools/SearchTools.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 2
+    },
+    {
+      "file": "src/tools/YoutubeTools.ts",
+      "categories": ["licensing"],
+      "symbols": ["BrevilabsClient"],
+      "inbound": 0,
+      "outbound": 2
+    }
+  ],
+  "edges": [
+    {
+      "from": "src/LLMProviders/brevilabsClient.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 19,
+      "symbols": [
+        "AutocompleteResponse",
+        "BrocaResponse",
+        "Docs4llmResponse",
+        "LicenseResponse",
+        "Pdf4llmResponse",
+        "RerankResponse",
+        "Url4llmResponse",
+        "WebSearchResponse",
+        "WordCompleteResponse",
+        "Youtube4llmResponse"
+      ]
+    },
+    {
+      "from": "src/components/modals/CopilotPlusWelcomeModal.tsx",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 8,
+      "symbols": [
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
+        "applyPlusSettings"
+      ]
+    },
+    {
+      "from": "src/plusUtils.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 6,
+      "symbols": [
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
+        "DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
+        "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
+        "createPlusPageUrl",
+        "turnOffPlus"
+      ]
+    },
+    {
+      "from": "src/settings/v2/components/PlusSettings.tsx",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 6,
+      "symbols": ["checkIsPlusUser", "navigateToPlusPage", "useIsPlusUser"]
+    },
+    {
+      "from": "src/tools/FileParserManager.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 6,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/components/chat-components/ChatControls.tsx",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 5,
+      "symbols": ["navigateToPlusPage", "useIsPlusUser"]
+    },
+    {
+      "from": "src/components/modals/CopilotPlusExpiredModal.tsx",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 5,
+      "symbols": ["isPlusModel", "navigateToPlusPage"]
+    },
+    {
+      "from": "src/LLMProviders/projectManager.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 5,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/mentions/Mention.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 5,
+      "symbols": ["BrevilabsClient", "Url4llmResponse"]
+    },
+    {
+      "from": "src/LLMProviders/brevilabsClient.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 4,
+      "symbols": ["turnOffPlus", "turnOnPlus"]
+    },
+    {
+      "from": "src/cache/pdfCache.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 3,
+      "symbols": ["Pdf4llmResponse"]
+    },
+    {
+      "from": "src/LLMProviders/chainRunner/utils/toolExecution.test.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 3,
+      "symbols": ["checkIsPlusUser"]
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 3,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/plusUtils.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 3,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/commands/index.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 2,
+      "symbols": ["checkIsPlusUser"]
+    },
+    {
+      "from": "src/components/Chat.tsx",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 2,
+      "symbols": ["useIsPlusUser"]
+    },
+    {
+      "from": "src/components/modals/YoutubeTranscriptModal.tsx",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 2,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/LLMProviders/chainRunner/AutonomousAgentChainRunner.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 2,
+      "symbols": ["checkIsPlusUser"]
+    },
+    {
+      "from": "src/LLMProviders/chainRunner/CopilotPlusChainRunner.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 2,
+      "symbols": ["checkIsPlusUser"]
+    },
+    {
+      "from": "src/LLMProviders/chainRunner/utils/toolExecution.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 2,
+      "symbols": ["checkIsPlusUser"]
+    },
+    {
+      "from": "src/LLMProviders/embeddingManager.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 2,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/LLMProviders/intentAnalyzer.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 2,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 2,
+      "symbols": ["checkIsPlusUser"]
+    },
+    {
+      "from": "src/search/hybridRetriever.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 2,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/settings/v2/components/BasicSettings.tsx",
+      "to": "src/plusUtils.ts",
+      "referenceCount": 2,
+      "symbols": ["createPlusPageUrl"]
+    },
+    {
+      "from": "src/tools/SearchTools.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 2,
+      "symbols": ["BrevilabsClient"]
+    },
+    {
+      "from": "src/tools/YoutubeTools.ts",
+      "to": "src/LLMProviders/brevilabsClient.ts",
+      "referenceCount": 2,
+      "symbols": ["BrevilabsClient"]
+    }
+  ]
+}
