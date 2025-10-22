@@ -348,7 +348,7 @@ export function isAllowedFileForChainContext(file: TFile | null, chainType: Chai
   if (!file) return false;
 
   // All chains support markdown and canvas files
-  if (file.extension === "md" || file.extension === "canvas") {
+  if (file.extension === "md" || file.extension === "canvas" || file.extension === "pdf") {
     return true;
   }
 

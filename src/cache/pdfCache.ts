@@ -1,7 +1,36 @@
-import { Pdf4llmResponse } from "@/LLMProviders/brevilabsClient";
 import { logError, logInfo } from "@/logger";
 import { MD5 } from "crypto-js";
 import { TFile } from "obsidian";
+
+export type PdfParserSource = "llama-parse" | "pdf2md";
+
+export interface PdfCachePage {
+  pageNumber: number;
+  content: string;
+  headings: string[];
+  images: string[];
+  annotations: string[];
+}
+
+export interface PdfCacheEntry {
+  version: number;
+  source: PdfParserSource;
+  markdown: string;
+  pages: PdfCachePage[];
+  meta: {
+    pageCount: number;
+    extractedAt: string;
+    jobId?: string;
+    warnings: string[];
+  };
+}
+
+interface LegacyPdf4llmCacheEntry {
+  response: unknown;
+  elapsed_time_ms?: number;
+}
+
+export const PDF_CACHE_VERSION = 2;
 
 export class PDFCache {
   private static instance: PDFCache;
@@ -35,7 +64,13 @@ export class PDFCache {
     return `${this.cacheDir}/${cacheKey}.json`;
   }
 
-  async get(file: TFile): Promise<Pdf4llmResponse | null> {
+  /**
+   * Retrieve a cached PDF parsing result if it exists and matches the current schema.
+   *
+   * @param file - The Obsidian file to look up in the cache.
+   * @returns The cached PDF entry or null when missing/legacy/invalid.
+   */
+  async get(file: TFile): Promise<PdfCacheEntry | null> {
     try {
       const cacheKey = this.getCacheKey(file);
       const cachePath = this.getCachePath(cacheKey);
@@ -43,7 +78,21 @@ export class PDFCache {
       if (await app.vault.adapter.exists(cachePath)) {
         logInfo("Cache hit for PDF:", file.path);
         const cacheContent = await app.vault.adapter.read(cachePath);
-        return JSON.parse(cacheContent);
+        const parsed = JSON.parse(cacheContent) as PdfCacheEntry | LegacyPdf4llmCacheEntry;
+
+        if (this.isLegacyEntry(parsed)) {
+          logInfo("Removing legacy PDF cache entry for:", file.path);
+          await app.vault.adapter.remove(cachePath);
+          return null;
+        }
+
+        if (parsed.version !== PDF_CACHE_VERSION) {
+          logInfo("Cache schema mismatch detected for PDF, ignoring entry:", file.path);
+          await app.vault.adapter.remove(cachePath);
+          return null;
+        }
+
+        return parsed;
       }
       logInfo("Cache miss for PDF:", file.path);
       return null;
@@ -53,13 +102,23 @@ export class PDFCache {
     }
   }
 
-  async set(file: TFile, response: Pdf4llmResponse): Promise<void> {
+  /**
+   * Persist a formatted PDF parsing result to the cache.
+   *
+   * @param file - The Obsidian file associated with the entry.
+   * @param entry - The cache entry to store.
+   */
+  async set(file: TFile, entry: PdfCacheEntry): Promise<void> {
     try {
       await this.ensureCacheDir();
       const cacheKey = this.getCacheKey(file);
       const cachePath = this.getCachePath(cacheKey);
       logInfo("Caching PDF response for:", file.path);
-      await app.vault.adapter.write(cachePath, JSON.stringify(response));
+      const payload: PdfCacheEntry = {
+        ...entry,
+        version: PDF_CACHE_VERSION,
+      };
+      await app.vault.adapter.write(cachePath, JSON.stringify(payload));
     } catch (error) {
       logError("Error writing to PDF cache:", error);
     }
@@ -77,5 +136,20 @@ export class PDFCache {
     } catch (error) {
       logError("Error clearing PDF cache:", error);
     }
+  }
+
+  /**
+   * Determine whether the parsed JSON payload is a legacy Brevilabs cache entry.
+   *
+   * @param entry - Parsed JSON payload.
+   * @returns True when the entry matches the deprecated schema.
+   */
+  private isLegacyEntry(
+    entry: PdfCacheEntry | LegacyPdf4llmCacheEntry
+  ): entry is LegacyPdf4llmCacheEntry {
+    return (
+      (entry as LegacyPdf4llmCacheEntry).response !== undefined &&
+      (entry as PdfCacheEntry).version === undefined
+    );
   }
 }

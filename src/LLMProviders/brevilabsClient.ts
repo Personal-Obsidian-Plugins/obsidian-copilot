@@ -305,6 +305,9 @@ export class BrevilabsClient {
     return data;
   }
 
+  /**
+   * @deprecated PDF parsing is now handled locally; this endpoint remains for backward compatibility.
+   */
   async pdf4llm(binaryContent: ArrayBuffer): Promise<Pdf4llmResponse> {
     // Convert ArrayBuffer to base64 string
     const base64Content = arrayBufferToBase64(binaryContent);

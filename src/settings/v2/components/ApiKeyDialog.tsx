@@ -401,6 +401,28 @@ function ApiKeyModalContent({ onClose }: ApiKeyModalContentProps) {
             </React.Fragment>
           ))}
         </div>
+        <div className="tw-space-y-2 tw-rounded-md tw-border tw-p-3 tw-border-muted/40 tw-bg-secondary/60">
+          <div className="tw-flex tw-flex-col tw-gap-1">
+            <div className="tw-font-medium">LlamaParse (Llama Cloud)</div>
+            <div className="tw-text-xs tw-text-muted">
+              Optional: enable hosted PDF parsing before falling back to the local converter.
+            </div>
+          </div>
+          <PasswordInput
+            className="tw-w-full"
+            placeholder="Enter your LlamaParse API key"
+            value={settings.llamaParseApiKey}
+            onChange={(value) => updateSetting("llamaParseApiKey", value)}
+          />
+          <a
+            href="https://cloud.llamaindex.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tw-text-[10px] tw-text-accent hover:tw-text-accent-hover sm:tw-text-xs"
+          >
+            Manage Llama Cloud API keys
+          </a>
+        </div>
       </div>
 
       <div className="tw-mt-4 tw-flex tw-justify-end">
