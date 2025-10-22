@@ -7,14 +7,14 @@ import {
   MAX_CHARS_FOR_LOCAL_SEARCH_CONTEXT,
   ModelCapability,
 } from "@/constants";
+import { logInfo, logWarn } from "@/logger";
+import { checkIsPlusUser } from "@/plusUtils";
 import {
   ImageBatchProcessor,
   ImageContent,
   ImageProcessingResult,
   MessageContent,
-} from "@/imageProcessing/imageProcessor";
-import { logInfo, logWarn } from "@/logger";
-import { checkIsPlusUser } from "@/plusUtils";
+} from "@/processors/imageProcessor";
 import { getSettings, getSystemPromptWithMemory } from "@/settings/model";
 import { writeToFileTool } from "@/tools/ComposerTools";
 import { ToolManager } from "@/tools/toolManager";
@@ -31,6 +31,11 @@ import {
   processRawChatHistory,
 } from "./utils/chatHistoryUtils";
 import {
+  buildLocalSearchInnerContent,
+  renderCiCMessage,
+  wrapLocalSearchPayload,
+} from "./utils/cicPromptUtils";
+import {
   addFallbackSources,
   formatSourceCatalog,
   getCitationInstructions,
@@ -43,11 +48,6 @@ import {
   formatSearchResultStringForLLM,
   logSearchResultsDebugTable,
 } from "./utils/searchResultUtils";
-import {
-  buildLocalSearchInnerContent,
-  renderCiCMessage,
-  wrapLocalSearchPayload,
-} from "./utils/cicPromptUtils";
 import { ThinkBlockStreamer } from "./utils/ThinkBlockStreamer";
 import { deduplicateSources } from "./utils/toolExecution";
 

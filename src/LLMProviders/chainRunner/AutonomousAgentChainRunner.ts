@@ -1,7 +1,7 @@
-import { MessageContent } from "@/imageProcessing/imageProcessor";
 import { logError, logInfo, logWarn } from "@/logger";
 import { UserMemoryManager } from "@/memory/UserMemoryManager";
 import { checkIsPlusUser } from "@/plusUtils";
+import { MessageContent } from "@/processors/imageProcessor";
 import { getSettings, getSystemPromptWithMemory } from "@/settings/model";
 import { initializeBuiltinTools } from "@/tools/builtinTools";
 import { extractParametersFromZod, SimpleTool } from "@/tools/SimpleTool";
@@ -10,7 +10,7 @@ import { deriveReadNoteDisplayName, ToolResultFormatter } from "@/tools/ToolResu
 import { ChatMessage, ResponseMetadata, StreamingResult } from "@/types/message";
 import { getMessageRole, withSuppressedTokenWarnings } from "@/utils";
 import { processToolResults } from "@/utils/toolResultUtils";
-import { HumanMessage, AIMessage, BaseMessage } from "@langchain/core/messages";
+import { AIMessage, BaseMessage, HumanMessage } from "@langchain/core/messages";
 import { CopilotPlusChainRunner } from "./CopilotPlusChainRunner";
 import { addChatHistoryToMessages } from "./utils/chatHistoryUtils";
 import {
@@ -22,8 +22,8 @@ import {
 import { ThinkBlockStreamer } from "./utils/ThinkBlockStreamer";
 import {
   createToolCallMarker,
-  updateToolCallMarker,
   ensureEncodedToolCallMarkerResults,
+  updateToolCallMarker,
 } from "./utils/toolCallParser";
 import {
   deduplicateSources,

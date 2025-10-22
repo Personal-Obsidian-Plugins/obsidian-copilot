@@ -2,10 +2,10 @@ import { getSettings } from "@/settings/model";
 import { Vault } from "obsidian";
 import { replaceInFileTool, writeToFileTool } from "./ComposerTools";
 import { createGetFileTreeTool } from "./FileTreeTools";
-import { createGetTagListTool } from "./TagTools";
 import { memoryTool } from "./memoryTools";
 import { readNoteTool } from "./NoteTools";
 import { localSearchTool, webSearchTool } from "./SearchTools";
+import { createGetTagListTool } from "./TagTools";
 import {
   convertTimeBetweenTimezonesTool,
   getCurrentTimeTool,
@@ -13,7 +13,6 @@ import {
   getTimeRangeMsTool,
 } from "./TimeTools";
 import { ToolDefinition, ToolRegistry } from "./ToolRegistry";
-import { youtubeTranscriptionTool } from "./YoutubeTools";
 
 /**
  * Define all built-in tools with their metadata
@@ -276,25 +275,6 @@ Example usage:
 - Bob Johnson
 +++++++ REPLACE
 </diff>
-</use_tool>`,
-    },
-  },
-
-  // Media tools
-  {
-    tool: youtubeTranscriptionTool,
-    metadata: {
-      id: "youtubeTranscription",
-      displayName: "YouTube Transcription",
-      description: "Get transcripts from YouTube videos",
-      category: "media",
-      customPromptInstructions: `For youtubeTranscription:
-- Use when user provides YouTube URLs
-- No parameters needed - the tool will process URLs from the conversation
-
-Example usage:
-<use_tool>
-<name>youtubeTranscription</name>
 </use_tool>`,
     },
   },
