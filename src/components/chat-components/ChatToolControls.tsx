@@ -1,17 +1,17 @@
-import React from "react";
-import { Database, Globe, Pen, Sparkles, Brain, Wrench, Check } from "lucide-react";
+import { ChainType } from "@/chainFactory";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChainType } from "@/chainFactory";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { updateSetting } from "@/settings/model";
 import { isPlusChain } from "@/utils";
+import { Brain, Check, Database, Globe, Pen, Sparkles, Wrench } from "lucide-react";
+import React from "react";
 
 interface ChatToolControlsProps {
   // Tool toggle states
@@ -83,16 +83,11 @@ const ChatToolControls: React.FC<ChatToolControlsProps> = ({
     }
   };
 
-  // If not Copilot Plus, don't show any tools
-  if (!isCopilotPlus) {
-    return null;
-  }
-
   return (
     <TooltipProvider delayDuration={0}>
       {/* Desktop view - show all icons when container is wide enough */}
       <div className="tw-hidden tw-items-center tw-gap-1.5 @[420px]/chat-input:tw-flex">
-        {/* Autonomous Agent button - only show in Copilot Plus mode and NOT in Projects mode */}
+        {/* Autonomous Agent button - only show in DEPRECATED mode and NOT in Projects mode */}
         {showAutonomousAgent && (
           <Tooltip>
             <TooltipTrigger asChild>
@@ -183,7 +178,7 @@ const ChatToolControls: React.FC<ChatToolControlsProps> = ({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="tw-w-56">
-            {/* Autonomous Agent option - only show in Copilot Plus mode and NOT in Projects mode */}
+            {/* Autonomous Agent option - only show in Agent mode and NOT in Projects mode */}
             {showAutonomousAgent && (
               <DropdownMenuItem
                 onClick={handleAutonomousAgentToggle}

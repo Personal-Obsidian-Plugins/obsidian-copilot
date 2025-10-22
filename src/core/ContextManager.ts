@@ -6,7 +6,7 @@ import { logInfo } from "@/logger";
 import { Mention } from "@/mentions/Mention";
 import { FileParserManager } from "@/tools/FileParserManager";
 import { ChatMessage, MessageContext } from "@/types/message";
-import { extractNoteFiles, getNotesFromTags, getNotesFromPath } from "@/utils";
+import { extractNoteFiles, getNotesFromPath, getNotesFromTags } from "@/utils";
 import { TFile, Vault } from "obsidian";
 import { MessageRepository } from "./MessageRepository";
 
@@ -61,7 +61,9 @@ export class ContextManager {
         activeNote
       );
 
-      // 2. Extract URLs and process them (for Copilot Plus chain)
+      // TODO: Update with new ChainType
+
+      // 2. Extract URLs and process them (for new Chain -- replacing deprecated utility)
       // Process URLs from context (only URLs explicitly added to context via URL pills)
       // This ensures url4llm is only called for URLs that appear in the context menu,
       // not for all URLs found in the message text.

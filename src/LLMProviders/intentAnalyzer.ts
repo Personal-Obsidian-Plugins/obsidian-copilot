@@ -1,5 +1,6 @@
 import ProjectManager from "@/LLMProviders/projectManager";
 import { isProjectMode } from "@/aiParams";
+import { AVAILABLE_TOOLS } from "@/components/chat-components/constants/tools";
 import { createGetFileTreeTool } from "@/tools/FileTreeTools";
 import { indexTool, localSearchTool, webSearchTool } from "@/tools/SearchTools";
 import {
@@ -9,12 +10,11 @@ import {
   getTimeRangeMsTool,
   TimeInfo,
 } from "@/tools/TimeTools";
+import { memoryTool } from "@/tools/memoryTools";
 import { ToolManager } from "@/tools/toolManager";
 import { extractChatHistory } from "@/utils";
 import { Vault } from "obsidian";
 import { BrevilabsClient } from "./brevilabsClient";
-import { memoryTool } from "@/tools/memoryTools";
-import { AVAILABLE_TOOLS } from "@/components/chat-components/constants/tools";
 
 type ToolCall = {
   tool: any;
@@ -85,7 +85,7 @@ export class IntentAnalyzer {
       return processedToolCalls;
     } catch (error) {
       console.error("Error in intent analysis:", error);
-      throw error; // Re-throw the error to be caught by CopilotPlusChainRunner
+      throw error;
     }
   }
 

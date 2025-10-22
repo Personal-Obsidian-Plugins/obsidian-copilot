@@ -7,49 +7,49 @@
         "name": "AutocompleteResponse",
         "category": "autocomplete",
         "tags": ["remove"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "BrevilabsClient",
         "category": "licensing",
         "tags": ["client", "remove"],
-        "note": "auto-generated (refs=32; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=64; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "BrocaResponse",
         "category": "tools",
         "tags": ["remove"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "Docs4llmResponse",
         "category": "context",
         "tags": ["remove"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "LicenseResponse",
         "category": "licensing",
         "tags": ["status"],
-        "note": "auto-generated (refs=1; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "Pdf4llmResponse",
         "category": "pdf",
         "tags": ["migrate"],
-        "note": "auto-generated (refs=5; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=10; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "RerankResponse",
         "category": "tools",
         "tags": ["remove"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
@@ -63,28 +63,28 @@
         "name": "Url4llmResponse",
         "category": "tools",
         "tags": ["remove"],
-        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=8; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "WebSearchResponse",
         "category": "tools",
         "tags": ["remove"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "WordCompleteResponse",
         "category": "autocomplete",
         "tags": ["remove"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       },
       {
         "type": "exact",
         "name": "Youtube4llmResponse",
         "category": "integrations",
         "tags": ["remove"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/LLMProviders/brevilabsClient.ts)"
       }
     ]
   },
@@ -96,84 +96,84 @@
         "name": "applyPlusSettings",
         "category": "licensing",
         "tags": ["settings", "side-effects"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "checkIsPlusUser",
         "category": "licensing",
         "tags": ["validation"],
-        "note": "auto-generated (refs=15; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=26; match=exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "createPlusPageUrl",
         "category": "marketing",
         "tags": ["urls"],
-        "note": "auto-generated (refs=3; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=6; match=exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "DEFAULT_COPILOT_PLUS_CHAT_MODEL",
         "category": "model-selection",
         "tags": ["defaults"],
-        "note": "auto-generated (refs=3; match=prefix; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=6; match=prefix/exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "DEFAULT_COPILOT_PLUS_CHAT_MODEL_KEY",
         "category": "model-selection",
         "tags": ["defaults"],
-        "note": "auto-generated (refs=1; match=prefix; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=2; match=prefix/exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL",
         "category": "model-selection",
         "tags": ["defaults"],
-        "note": "auto-generated (refs=3; match=prefix; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=6; match=prefix/exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "DEFAULT_COPILOT_PLUS_EMBEDDING_MODEL_KEY",
         "category": "model-selection",
         "tags": ["defaults"],
-        "note": "auto-generated (refs=3; match=prefix; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=6; match=prefix/exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "isPlusModel",
         "category": "model-selection",
         "tags": ["models"],
-        "note": "auto-generated (refs=3; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=6; match=exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "navigateToPlusPage",
         "category": "marketing",
         "tags": ["ui", "navigation"],
-        "note": "auto-generated (refs=7; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=14; match=exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "turnOffPlus",
         "category": "licensing",
         "tags": ["status", "settings"],
-        "note": "auto-generated (refs=3; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=6; match=exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "turnOnPlus",
         "category": "licensing",
         "tags": ["status", "settings"],
-        "note": "auto-generated (refs=2; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=4; match=exact; sources=src/plusUtils.ts)"
       },
       {
         "type": "exact",
         "name": "useIsPlusUser",
         "category": "licensing",
         "tags": ["hooks"],
-        "note": "auto-generated (refs=6; match=exact; sources=src/plusUtils.ts)"
+        "note": "auto-generated (refs=12; match=exact; sources=src/plusUtils.ts)"
       }
     ]
   }

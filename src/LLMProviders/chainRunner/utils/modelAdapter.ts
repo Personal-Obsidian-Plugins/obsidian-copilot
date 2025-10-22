@@ -862,12 +862,6 @@ export class ModelAdapterFactory {
       return new GeminiModelAdapter(modelName);
     }
 
-    // Copilot Plus models
-    if (modelName.includes("copilot-plus")) {
-      logInfo("Using BaseModelAdapter for Copilot Plus");
-      return new BaseModelAdapter(modelName);
-    }
-
     // Default adapter for unknown models
     logInfo("Using BaseModelAdapter (default)");
     return new BaseModelAdapter(modelName);

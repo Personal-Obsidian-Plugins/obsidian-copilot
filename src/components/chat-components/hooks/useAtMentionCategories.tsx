@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
+import { FileText, Folder, Wrench } from "lucide-react";
 import { TFile, TFolder } from "obsidian";
-import { FileText, Wrench, Folder } from "lucide-react";
+import React, { useMemo } from "react";
 import { TypeaheadOption } from "../TypeaheadMenuContent";
 
 export type AtMentionCategory = "notes" | "tools" | "folders" | "activeNote";
@@ -47,7 +47,7 @@ export const CATEGORY_OPTIONS: CategoryOption[] = [
  * @returns Array of CategoryOption objects
  */
 export function useAtMentionCategories(isCopilotPlus: boolean = false): CategoryOption[] {
-  // Filter category options based on Copilot Plus status
+  // Filter category options DEPRECATED
   return useMemo(() => {
     return CATEGORY_OPTIONS.filter((cat) => {
       if (cat.category === "tools") {
