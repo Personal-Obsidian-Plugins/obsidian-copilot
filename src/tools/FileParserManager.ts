@@ -1,8 +1,8 @@
 import { BrevilabsClient } from "@/LLMProviders/brevilabsClient";
 import { ProjectConfig } from "@/aiParams";
-import { PDFCache } from "@/cache/pdfCache";
 import { ProjectContextCache } from "@/cache/projectContextCache";
 import { logError, logInfo } from "@/logger";
+import { LocalPdfProcessor } from "@/processors/pdfProcessor";
 import { extractRetryTime, isRateLimitError } from "@/utils/rateLimitUtils";
 import { Notice, TFile, Vault } from "obsidian";
 import { CanvasLoader } from "./CanvasLoader";
@@ -22,31 +22,14 @@ export class MarkdownParser implements FileParser {
 
 export class PDFParser implements FileParser {
   supportedExtensions = ["pdf"];
-  private brevilabsClient: BrevilabsClient;
-  private pdfCache: PDFCache;
-
-  constructor(brevilabsClient: BrevilabsClient) {
-    this.brevilabsClient = brevilabsClient;
-    this.pdfCache = PDFCache.getInstance();
-  }
+  constructor(private readonly pdfProcessor: LocalPdfProcessor) {}
 
   async parseFile(file: TFile, vault: Vault): Promise<string> {
     try {
       logInfo("Parsing PDF file:", file.path);
 
-      // Try to get from cache first
-      const cachedResponse = await this.pdfCache.get(file);
-      if (cachedResponse) {
-        logInfo("Using cached PDF content for:", file.path);
-        return cachedResponse.response;
-      }
-
-      // If not in cache, read the file and call the API
-      const binaryContent = await vault.readBinary(file);
-      logInfo("Calling pdf4llm API for:", file.path);
-      const pdf4llmResponse = await this.brevilabsClient.pdf4llm(binaryContent);
-      await this.pdfCache.set(file, pdf4llmResponse);
-      return pdf4llmResponse.response;
+      const entry = await this.pdfProcessor.parseToMarkdown(file, vault);
+      return entry.markdown;
     } catch (error) {
       logError(`Error extracting content from PDF ${file.path}:`, error);
       return `[Error: Could not extract content from PDF ${file.basename}]`;
@@ -55,7 +38,7 @@ export class PDFParser implements FileParser {
 
   async clearCache(): Promise<void> {
     logInfo("Clearing PDF cache");
-    await this.pdfCache.clear();
+    await this.pdfProcessor.clearCache();
   }
 }
 
@@ -339,6 +322,7 @@ export class FileParserManager {
   ) {
     this.isProjectMode = isProjectMode;
     this.currentProject = project;
+    const localPdfProcessor = new LocalPdfProcessor();
 
     // Register parsers
     this.registerParser(new MarkdownParser());
@@ -348,7 +332,7 @@ export class FileParserManager {
 
     // Only register PDFParser when not in project mode
     if (!isProjectMode) {
-      this.registerParser(new PDFParser(brevilabsClient));
+      this.registerParser(new PDFParser(localPdfProcessor));
     }
 
     this.registerParser(new CanvasParser());

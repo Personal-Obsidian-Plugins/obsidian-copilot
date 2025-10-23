@@ -86,24 +86,24 @@ const ChatToolControls: React.FC<ChatToolControlsProps> = ({
   return (
     <TooltipProvider delayDuration={0}>
       {/* Desktop view - show all icons when container is wide enough */}
-      <div className="tw-hidden tw-items-center tw-gap-1.5 @[420px]/chat-input:tw-flex">
+      <div className="tw-hidden tw-items-center tw-gap-1 @[420px]/chat-input:tw-flex">
         {/* Autonomous Agent button - only show in DEPRECATED mode and NOT in Projects mode */}
         {showAutonomousAgent && (
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
                 variant="ghost2"
-                size="fit"
+                size="icon"
                 onClick={handleAutonomousAgentToggle}
                 className={cn(
-                  "tw-text-muted hover:tw-text-accent",
-                  autonomousAgentToggle && "tw-text-accent tw-bg-accent/10"
+                  "tw-text-muted hover:tw-text-normal",
+                  autonomousAgentToggle && "tw-bg-interactive-accent-hsl/10 tw-text-accent"
                 )}
               >
-                <Brain className="tw-size-4" />
+                <Brain className="tw-size-5" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent className="tw-px-1 tw-py-0.5">
+            <TooltipContent className="tw-px-2 tw-py-1">
               Toggle autonomous agent mode
             </TooltipContent>
           </Tooltip>
@@ -116,52 +116,52 @@ const ChatToolControls: React.FC<ChatToolControlsProps> = ({
               <TooltipTrigger asChild>
                 <Button
                   variant="ghost2"
-                  size="fit"
+                  size="icon"
                   onClick={handleVaultToggle}
                   className={cn(
-                    "tw-text-muted hover:tw-text-accent",
-                    vaultToggle && "tw-text-accent tw-bg-accent/10"
+                    "tw-text-muted hover:tw-text-normal",
+                    vaultToggle && "tw-bg-interactive-accent-hsl/10 tw-text-accent"
                   )}
                 >
-                  <Database className="tw-size-4" />
+                  <Database className="tw-size-5" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent className="tw-px-1 tw-py-0.5">Toggle vault search</TooltipContent>
+              <TooltipContent className="tw-px-2 tw-py-1">Toggle vault search</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
                   variant="ghost2"
-                  size="fit"
+                  size="icon"
                   onClick={handleWebToggle}
                   className={cn(
-                    "tw-text-muted hover:tw-text-accent",
-                    webToggle && "tw-text-accent tw-bg-accent/10"
+                    "tw-text-muted hover:tw-text-normal",
+                    webToggle && "tw-bg-interactive-accent-hsl/10 tw-text-accent"
                   )}
                 >
-                  <Globe className="tw-size-4" />
+                  <Globe className="tw-size-5" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent className="tw-px-1 tw-py-0.5">Toggle web search</TooltipContent>
+              <TooltipContent className="tw-px-2 tw-py-1">Toggle web search</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
                   variant="ghost2"
-                  size="fit"
+                  size="icon"
                   onClick={handleComposerToggle}
                   className={cn(
-                    "tw-text-muted hover:tw-text-accent",
-                    composerToggle && "tw-text-accent tw-bg-accent/10"
+                    "tw-text-muted hover:tw-text-normal",
+                    composerToggle && "tw-bg-interactive-accent-hsl/10 tw-text-accent"
                   )}
                 >
                   <span className="tw-flex tw-items-center tw-gap-0.5">
-                    <Sparkles className="tw-size-2" />
-                    <Pen className="tw-size-3" />
+                    <Sparkles className="tw-size-2.5" />
+                    <Pen className="tw-size-4" />
                   </span>
                 </Button>
               </TooltipTrigger>
-              <TooltipContent className="tw-px-1 tw-py-0.5">
+              <TooltipContent className="tw-px-2 tw-py-1">
                 Toggle composer (note editing)
               </TooltipContent>
             </Tooltip>
@@ -173,8 +173,8 @@ const ChatToolControls: React.FC<ChatToolControlsProps> = ({
       <div className="tw-flex tw-items-center tw-gap-0.5 @[420px]/chat-input:tw-hidden">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost2" size="fit" className="tw-text-muted hover:tw-text-accent">
-              <Wrench className="tw-size-4" />
+            <Button variant="ghost2" size="icon" className="tw-text-muted hover:tw-text-normal">
+              <Wrench className="tw-size-5" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="tw-w-56">

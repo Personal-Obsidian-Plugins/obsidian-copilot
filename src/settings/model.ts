@@ -64,6 +64,7 @@ export interface CopilotSettings {
   xaiApiKey: string;
   mistralApiKey: string;
   deepseekApiKey: string;
+  llamaParseApiKey: string;
   defaultChainType: ChainType;
   defaultModelKey: string;
   embeddingModelKey: string;

@@ -10,7 +10,7 @@ import {
 import { ModelDisplay } from "@/components/ui/model-display";
 import { useSettingsValue, getModelKeyFromModel } from "@/settings/model";
 import { checkModelApiKey, err2String } from "@/utils";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ModelSelectorProps {
@@ -45,26 +45,30 @@ export function ModelSelector({
           variant={variant}
           size={size}
           disabled={disabled}
-          className={cn("tw-min-w-0 tw-justify-start tw-text-muted", className)}
+          className={cn(
+            "tw-min-w-0 tw-justify-start tw-gap-2 tw-rounded-lg tw-border-none tw-px-3 tw-py-2 hover:tw-bg-interactive-hover",
+            className
+          )}
         >
-          <div className="tw-min-w-0 tw-flex-1 tw-truncate">
+          <div className="tw-flex tw-min-w-0 tw-flex-1 tw-items-center tw-gap-2 tw-truncate">
             {modelError ? (
-              <span className="tw-truncate tw-text-error">Model Load Failed</span>
+              <span className="tw-truncate tw-text-sm tw-text-error">Model Load Failed</span>
             ) : currentModel ? (
-              <ModelDisplay model={currentModel} iconSize={8} />
+              <ModelDisplay model={currentModel} iconSize={10} />
             ) : (
-              <span className="tw-truncate">Select Model</span>
+              <span className="tw-truncate tw-text-sm">Select Model</span>
             )}
           </div>
-          {!disabled && <ChevronDown className="tw-mt-0.5 tw-size-5 tw-shrink-0" />}
+          {!disabled && <ChevronDown className="tw-size-4 tw-shrink-0 tw-text-muted" />}
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start">
+      <DropdownMenuContent align="start" className="tw-min-w-[200px]">
         {settings.activeModels
           .filter((model) => model.enabled)
           .map((model) => {
             const { hasApiKey, errorNotice } = checkModelApiKey(model, settings);
+            const isSelected = getModelKeyFromModel(model) === value;
             return (
               <DropdownMenuItem
                 key={getModelKeyFromModel(model)}
@@ -91,9 +95,14 @@ export function ModelSelector({
                     }
                   }
                 }}
-                className={!hasApiKey ? "tw-cursor-not-allowed tw-opacity-50" : ""}
+                className={cn(
+                  "tw-cursor-pointer tw-gap-2 tw-py-2.5",
+                  !hasApiKey && "tw-cursor-not-allowed tw-opacity-50",
+                  isSelected && "tw-bg-modifier-hover"
+                )}
               >
                 <ModelDisplay model={model} iconSize={12} />
+                {isSelected && <Check className="tw-ml-auto tw-size-4 tw-text-accent" />}
               </DropdownMenuItem>
             );
           })}

@@ -601,7 +601,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
 
   return (
     <div
-      className="tw-flex tw-w-full tw-flex-col tw-gap-0.5 tw-rounded-md tw-border tw-border-solid tw-border-border tw-px-1 tw-pb-1 tw-pt-2 tw-@container/chat-input"
+      className="tw-flex tw-w-full tw-flex-col tw-gap-2 tw-rounded-lg tw-border tw-border-solid tw-border-border tw-bg-primary tw-p-3 tw-@container/chat-input"
       ref={containerRef}
     >
       <ContextControl
@@ -638,7 +638,39 @@ const ChatInput: React.FC<ChatInputProps> = ({
         </div>
       )}
 
-      <div className="tw-relative" {...getRootProps()}>
+      {/* Top row: Model selector and loading state */}
+      <div className="tw-flex tw-items-center tw-justify-between">
+        {/* Model Selector - Left side */}
+        {!isGenerating && (
+          <div className="tw-shrink-0">
+            <ModelSelector
+              variant="ghost2"
+              size="fit"
+              disabled={disableModelSwitch}
+              value={getDisplayModelKey()}
+              onChange={(modelKey) => {
+                // In project mode, we don't update the global model key
+                // as the project model takes precedence
+                if (currentChain !== ChainType.PROJECT_CHAIN) {
+                  setCurrentModelKey(modelKey);
+                }
+              }}
+              className="tw-text-muted"
+            />
+          </div>
+        )}
+
+        {/* Loading indicator when generating */}
+        {isGenerating && (
+          <div className="tw-flex tw-shrink-0 tw-items-center tw-gap-2 tw-text-sm tw-text-muted">
+            <Loader2 className="tw-size-4 tw-animate-spin" />
+            <span>Generating...</span>
+          </div>
+        )}
+      </div>
+
+      {/* Input area - Full width row */}
+      <div className="tw-relative tw-w-full" {...getRootProps()}>
         {isProjectLoading && (
           <div className="tw-absolute tw-inset-0 tw-z-modal tw-flex tw-items-center tw-justify-center tw-bg-primary tw-opacity-80 tw-backdrop-blur-sm">
             <div className="tw-flex tw-items-center tw-gap-2">
@@ -664,7 +696,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
           onEditorReady={onEditorReady}
           onImagePaste={onAddImage}
           onTagSelected={handleTagSelected}
-          placeholder={"Your AI assistant for Obsidian • @ to add context • / for custom prompts"}
+          placeholder={"What can I do for you?"}
           disabled={isProjectLoading}
           isCopilotPlus={isCopilotPlus}
           currentActiveFile={currentActiveNote}
@@ -679,97 +711,72 @@ const ChatInput: React.FC<ChatInputProps> = ({
         )}
       </div>
 
-      <div className="tw-flex tw-h-6 tw-justify-between tw-gap-1 tw-px-1">
+      {/* Bottom row: Action buttons */}
+      <div className="tw-flex tw-items-center tw-justify-end tw-gap-2">
         {isGenerating ? (
-          <div className="tw-flex tw-items-center tw-gap-1 tw-px-1 tw-text-sm tw-text-muted">
-            <Loader2 className="tw-size-3 tw-animate-spin" />
-            <span>Generating...</span>
-          </div>
+          <Button
+            variant="ghost2"
+            size="icon"
+            className="tw-text-muted hover:tw-text-normal"
+            onClick={() => onStopGenerating()}
+          >
+            <StopCircle className="tw-size-5" />
+          </Button>
         ) : (
-          <div className="tw-min-w-0 tw-flex-1">
-            <ModelSelector
-              variant="ghost2"
-              size="fit"
-              disabled={disableModelSwitch}
-              value={getDisplayModelKey()}
-              onChange={(modelKey) => {
-                // In project mode, we don't update the global model key
-                // as the project model takes precedence
-                if (currentChain !== ChainType.PROJECT_CHAIN) {
-                  setCurrentModelKey(modelKey);
-                }
-              }}
-              className="tw-max-w-full tw-truncate"
+          <>
+            <ChatToolControls
+              vaultToggle={vaultToggle}
+              setVaultToggle={setVaultToggle}
+              webToggle={webToggle}
+              setWebToggle={setWebToggle}
+              composerToggle={composerToggle}
+              setComposerToggle={setComposerToggle}
+              autonomousAgentToggle={autonomousAgentToggle}
+              setAutonomousAgentToggle={setAutonomousAgentToggle}
+              currentChain={currentChain}
+              onVaultToggleOff={handleVaultToggleOff}
+              onWebToggleOff={handleWebToggleOff}
+              onComposerToggleOff={handleComposerToggleOff}
             />
-          </div>
-        )}
-
-        <div className="tw-flex tw-items-center tw-gap-1">
-          {isGenerating ? (
-            <Button
-              variant="ghost2"
-              size="fit"
-              className="tw-text-muted"
-              onClick={() => onStopGenerating()}
-            >
-              <StopCircle className="tw-size-4" />
-              Stop
-            </Button>
-          ) : (
-            <>
-              <ChatToolControls
-                vaultToggle={vaultToggle}
-                setVaultToggle={setVaultToggle}
-                webToggle={webToggle}
-                setWebToggle={setWebToggle}
-                composerToggle={composerToggle}
-                setComposerToggle={setComposerToggle}
-                autonomousAgentToggle={autonomousAgentToggle}
-                setAutonomousAgentToggle={setAutonomousAgentToggle}
-                currentChain={currentChain}
-                onVaultToggleOff={handleVaultToggleOff}
-                onWebToggleOff={handleWebToggleOff}
-                onComposerToggleOff={handleComposerToggleOff}
-              />
-              <TooltipProvider delayDuration={0}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="ghost2"
-                      size="fit"
-                      className="tw-text-muted hover:tw-text-accent"
-                      onClick={() => {
-                        new AddImageModal(app, onAddImage).open();
-                      }}
-                    >
-                      <Image className="tw-size-4" />
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent className="tw-px-1 tw-py-0.5">Add image(s)</TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              {editMode && onEditCancel && (
-                <Button
-                  variant="ghost2"
-                  size="fit"
-                  className="tw-text-muted"
-                  onClick={onEditCancel}
-                >
-                  <span>cancel</span>
-                </Button>
-              )}
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost2"
+                    size="icon"
+                    className="tw-text-muted hover:tw-text-normal"
+                    onClick={() => {
+                      new AddImageModal(app, onAddImage).open();
+                    }}
+                  >
+                    <Image className="tw-size-5" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent className="tw-px-2 tw-py-1">Add image(s)</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            {editMode && onEditCancel && (
               <Button
                 variant="ghost2"
-                size="fit"
-                className="tw-text-muted"
-                onClick={() => onSendMessage()}
+                size="icon"
+                className="tw-text-muted hover:tw-text-normal"
+                onClick={onEditCancel}
+                title="Cancel"
               >
-                <CornerDownLeft className="!tw-size-3" />
-                <span>{editMode ? "save" : "chat"}</span>
+                <X className="tw-size-5" />
               </Button>
-            </>
-          )}
-        </div>
+            )}
+            <Button
+              variant="ghost2"
+              size="icon"
+              className="tw-text-muted hover:tw-text-accent"
+              onClick={() => onSendMessage()}
+              title={editMode ? "Save" : "Send message"}
+            >
+              <CornerDownLeft className="tw-size-5" />
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );

@@ -65,6 +65,18 @@ export class PDFCache {
   }
 
   /**
+   * Expose the internally generated cache key for a PDF file. This allows other
+   * subsystems (e.g. vector stores) to reference the same stable identifier
+   * without duplicating hashing logic.
+   *
+   * @param file - The PDF file for which to derive the cache key.
+   * @returns Stable cache key derived from path, size, and modification time.
+   */
+  getCacheKeyForFile(file: TFile): string {
+    return this.getCacheKey(file);
+  }
+
+  /**
    * Retrieve a cached PDF parsing result if it exists and matches the current schema.
    *
    * @param file - The Obsidian file to look up in the cache.

@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "tw-inline-flex tw-items-center tw-justify-center tw-gap-1 tw-whitespace-nowrap tw-rounded-md tw-text-sm tw-font-medium tw-transition-colors focus-visible:tw-outline-none focus-visible:tw-ring-1 focus-visible:tw-ring-ring disabled:tw-pointer-events-none disabled:tw-opacity-50 [&_svg]:tw-shrink-0",
+  "tw-inline-flex tw-items-center tw-justify-center tw-gap-1.5 tw-whitespace-nowrap tw-rounded-lg tw-text-sm tw-font-medium tw-transition-all tw-duration-200 focus-visible:tw-outline-none focus-visible:tw-ring-1 focus-visible:tw-ring-ring disabled:tw-pointer-events-none disabled:tw-opacity-50 [&_svg]:tw-shrink-0",
   {
     variants: {
       variant: {
@@ -20,14 +20,14 @@ const buttonVariants = cva(
         success:
           "clickable-icon tw-bg-modifier-success tw-text-on-accent hover:tw-bg-modifier-success hover:tw-text-on-accent",
         ghost2:
-          "clickable-icon tw-bg-transparent tw-text-faint tw-outline-none hover:tw-bg-transparent hover:tw-bg-opacity-100 hover:tw-text-normal focus-visible:tw-text-normal focus-visible:tw-outline-none focus-visible:tw-ring-0",
+          "clickable-icon tw-bg-transparent tw-text-muted tw-outline-none hover:tw-bg-interactive-hover hover:tw-text-normal focus-visible:tw-text-normal focus-visible:tw-outline-none focus-visible:tw-ring-0 active:tw-scale-95",
       },
       size: {
         default: "tw-h-9 tw-px-4 tw-py-2",
-        sm: "tw-h-6 tw-rounded-md tw-px-3 tw-text-xs",
-        lg: "tw-h-10 tw-rounded-md tw-px-8",
-        icon: "tw-size-7",
-        fit: "tw-gap-1 tw-px-1 tw-text-xs",
+        sm: "tw-h-6 tw-rounded-lg tw-px-3 tw-text-xs",
+        lg: "tw-h-10 tw-rounded-lg tw-px-8",
+        icon: "tw-size-9 tw-rounded-lg",
+        fit: "tw-gap-1.5 tw-px-2 tw-py-1.5 tw-text-xs",
       },
     },
     defaultVariants: {
