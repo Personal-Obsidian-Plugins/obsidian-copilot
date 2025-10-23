@@ -1,16 +1,16 @@
 # Code Analysis Report: src/tools/FileParserManager.ts
 
-Generated: 2025-10-22T20:06:05.518Z
+Generated: 2025-10-23T16:34:12.398Z
 
 ## Quick Reference
 
 **Top Symbols (by importance):**
 
-1. **FileParserManager** (score: 90) - 20 refs, 7 files, 53 LOC
+1. **FileParserManager** (score: 90) - 20 refs, 7 files, 54 LOC
 2. **parseFile** (score: 48) - 4 refs, 2 files, 91 LOC
-3. **parseFile** (score: 37) - 4 refs, 2 files, 22 LOC
-4. **Docs4LLMParser** (score: 34) - 2 refs, 1 files, 237 LOC
-5. **parseFile** (score: 33) - 4 refs, 2 files, 13 LOC
+3. **Docs4LLMParser** (score: 34) - 2 refs, 1 files, 237 LOC
+4. **parseFile** (score: 33) - 4 refs, 2 files, 13 LOC
+5. **parseFile** (score: 32) - 4 refs, 2 files, 11 LOC
 
 **Dependencies:** 9 files depend on this target
 
@@ -18,44 +18,44 @@ Generated: 2025-10-22T20:06:05.518Z
 
 - **Target**: `src/tools/FileParserManager.ts`
 - **Exclude Stdlib**: true
-- **Target Symbols**: 37
+- **Target Symbols**: 36
 - **Inbound References**: 31
-- **Outbound References**: 122
-- **Function Calls**: 38
+- **Outbound References**: 110
+- **Function Calls**: 35
 
 ## Target Symbols (Ranked by Importance)
 
 | Rank | Name                      | Kind                 | Score | Refs | Files | LOC | Locations                                                                                                                                                                       |
 | ---- | ------------------------- | -------------------- | ----- | ---- | ----- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | FileParserManager         | ClassDeclaration     | 90    | 20   | 7     | 53  | src/tools/FileParserManager.ts:329                                                                                                                                              |
-| 2    | parseFile                 | MethodDeclaration    | 48    | 4    | 2     | 91  | src/tools/FileParserManager.ts:202, src/tools/FileParserManager.ts:33, src/tools/FileParserManager.ts:65, src/tools/FileParserManager.ts:363, src/tools/FileParserManager.ts:18 |
-| 3    | Docs4LLMParser            | ClassDeclaration     | 34    | 2    | 1     | 237 | src/tools/FileParserManager.ts:80                                                                                                                                               |
-| 4    | supportsExtension         | MethodDeclaration    | 25    | 3    | 2     | 3   | src/tools/FileParserManager.ts:371                                                                                                                                              |
-| 5    | resetRateLimitNoticeTimer | MethodDeclaration    | 21    | 1    | 1     | 3   | src/tools/FileParserManager.ts:192                                                                                                                                              |
-| 6    | PDFParser                 | ClassDeclaration     | 15    | 0    | 0     | 38  | src/tools/FileParserManager.ts:23                                                                                                                                               |
-| 7    | clearPDFCache             | MethodDeclaration    | 12    | 1    | 1     | 6   | src/tools/FileParserManager.ts:375                                                                                                                                              |
-| 8    | CanvasParser              | ClassDeclaration     | 7     | 0    | 0     | 17  | src/tools/FileParserManager.ts:62                                                                                                                                               |
-| 9    | showRateLimitNotice       | MethodDeclaration    | 7     | 0    | 0     | 17  | src/tools/FileParserManager.ts:294                                                                                                                                              |
+| 1    | FileParserManager         | ClassDeclaration     | 90    | 20   | 7     | 54  | src/tools/FileParserManager.ts:312                                                                                                                                              |
+| 2    | parseFile                 | MethodDeclaration    | 48    | 4    | 2     | 91  | src/tools/FileParserManager.ts:185, src/tools/FileParserManager.ts:48, src/tools/FileParserManager.ts:27, src/tools/FileParserManager.ts:347, src/tools/FileParserManager.ts:18 |
+| 3    | Docs4LLMParser            | ClassDeclaration     | 34    | 2    | 1     | 237 | src/tools/FileParserManager.ts:63                                                                                                                                               |
+| 4    | supportsExtension         | MethodDeclaration    | 25    | 3    | 2     | 3   | src/tools/FileParserManager.ts:355                                                                                                                                              |
+| 5    | resetRateLimitNoticeTimer | MethodDeclaration    | 21    | 1    | 1     | 3   | src/tools/FileParserManager.ts:175                                                                                                                                              |
+| 6    | clearPDFCache             | MethodDeclaration    | 12    | 1    | 1     | 6   | src/tools/FileParserManager.ts:359                                                                                                                                              |
+| 7    | PDFParser                 | ClassDeclaration     | 8     | 0    | 0     | 21  | src/tools/FileParserManager.ts:23                                                                                                                                               |
+| 8    | CanvasParser              | ClassDeclaration     | 7     | 0    | 0     | 17  | src/tools/FileParserManager.ts:45                                                                                                                                               |
+| 9    | showRateLimitNotice       | MethodDeclaration    | 7     | 0    | 0     | 17  | src/tools/FileParserManager.ts:277                                                                                                                                              |
 | 10   | MarkdownParser            | ClassDeclaration     | 3     | 0    | 0     | 7   | src/tools/FileParserManager.ts:15                                                                                                                                               |
 | 11   | FileParser                | InterfaceDeclaration | 2     | 0    | 0     | 4   | src/tools/FileParserManager.ts:10                                                                                                                                               |
-| 12   | clearCache                | MethodDeclaration    | 2     | 0    | 0     | 4   | src/tools/FileParserManager.ts:56, src/tools/FileParserManager.ts:312                                                                                                           |
-| 13   | cachedContent             | VariableDeclaration  | 2     | 0    | 0     | 4   | src/tools/FileParserManager.ts:213                                                                                                                                              |
-| 14   | registerParser            | MethodDeclaration    | 2     | 0    | 0     | 5   | src/tools/FileParserManager.ts:357                                                                                                                                              |
-| 15   | cachedResponse            | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:38                                                                                                                                               |
-| 16   | binaryContent             | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:45, src/tools/FileParserManager.ts:227                                                                                                           |
-| 17   | pdf4llmResponse           | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:47                                                                                                                                               |
-| 18   | error                     | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:50, src/tools/FileParserManager.ts:73, src/tools/FileParserManager.ts:279                                                                        |
-| 19   | canvasLoader              | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:68                                                                                                                                               |
-| 20   | canvasData                | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:69                                                                                                                                               |
-| 21   | docs4llmResponse          | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:232                                                                                                                                              |
-| 22   | content                   | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:239                                                                                                                                              |
-| 23   | markdownParts             | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:244                                                                                                                                              |
-| 24   | doc                       | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:245                                                                                                                                              |
-| 25   | now                       | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:295                                                                                                                                              |
-| 26   | retryTime                 | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:304                                                                                                                                              |
-| 27   | ext                       | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:358                                                                                                                                              |
-| 28   | parser                    | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:364                                                                                                                                              |
-| 29   | pdfParser                 | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:376                                                                                                                                              |
+| 12   | clearCache                | MethodDeclaration    | 2     | 0    | 0     | 4   | src/tools/FileParserManager.ts:39, src/tools/FileParserManager.ts:295                                                                                                           |
+| 13   | cachedContent             | VariableDeclaration  | 2     | 0    | 0     | 4   | src/tools/FileParserManager.ts:196                                                                                                                                              |
+| 14   | registerParser            | MethodDeclaration    | 2     | 0    | 0     | 5   | src/tools/FileParserManager.ts:341                                                                                                                                              |
+| 15   | entry                     | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:31                                                                                                                                               |
+| 16   | error                     | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:33, src/tools/FileParserManager.ts:56, src/tools/FileParserManager.ts:262                                                                        |
+| 17   | canvasLoader              | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:51                                                                                                                                               |
+| 18   | canvasData                | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:52                                                                                                                                               |
+| 19   | binaryContent             | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:210                                                                                                                                              |
+| 20   | docs4llmResponse          | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:215                                                                                                                                              |
+| 21   | content                   | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:222                                                                                                                                              |
+| 22   | markdownParts             | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:227                                                                                                                                              |
+| 23   | doc                       | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:228                                                                                                                                              |
+| 24   | now                       | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:278                                                                                                                                              |
+| 25   | retryTime                 | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:287                                                                                                                                              |
+| 26   | localPdfProcessor         | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:325                                                                                                                                              |
+| 27   | ext                       | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:342                                                                                                                                              |
+| 28   | parser                    | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:348                                                                                                                                              |
+| 29   | pdfParser                 | VariableDeclaration  | 0     | 0    | 0     | 1   | src/tools/FileParserManager.ts:360                                                                                                                                              |
 
 ## Target-Level Dependencies
 
@@ -121,16 +121,16 @@ graph LR
 graph TD
     F0["parseFile"]
     F1["read"]
-    F2["anonymous"]
-    F3["getInstance"]
-    F4["logInfo"]
-    F5["readBinary"]
-    F6["pdf4llm"]
-    F7["logError"]
-    F8["clearCache"]
-    F9["load"]
-    F10["buildPrompt"]
-    F11["getOrReuseFileContext"]
+    F2["logInfo"]
+    F3["parseToMarkdown"]
+    F4["logError"]
+    F5["clearCache"]
+    F6["load"]
+    F7["buildPrompt"]
+    F8["anonymous"]
+    F9["getInstance"]
+    F10["getOrReuseFileContext"]
+    F11["readBinary"]
     F12["docs4llm"]
     F13["isArray"]
     F14["String"]
@@ -142,43 +142,40 @@ graph TD
     F20["registerParser"]
     F21["clearPDFCache"]
     F0 --> F1
-    F2 --> F3
+    F0 --> F2
+    F0 --> F3
     F0 --> F4
-    F0 --> F4
-    F0 --> F5
-    F0 --> F4
+    F5 --> F2
+    F5 --> F5
+    F0 --> F2
     F0 --> F6
     F0 --> F7
-    F8 --> F4
     F0 --> F4
-    F0 --> F9
+    F8 --> F9
+    F0 --> F2
+    F0 --> F4
     F0 --> F10
-    F0 --> F7
-    F2 --> F3
-    F0 --> F4
-    F0 --> F7
+    F0 --> F2
+    F0 --> F2
     F0 --> F11
-    F0 --> F4
-    F0 --> F4
-    F0 --> F5
-    F0 --> F4
+    F0 --> F2
     F0 --> F12
     F0 --> F13
     F0 --> F14
     F0 --> F15
+    F0 --> F2
     F0 --> F4
-    F0 --> F7
     F0 --> F16
     F0 --> F17
     F17 --> F18
     F17 --> F19
-    F8 --> F4
-    F2 --> F20
-    F2 --> F20
-    F2 --> F20
-    F2 --> F20
+    F5 --> F2
+    F8 --> F20
+    F8 --> F20
+    F8 --> F20
+    F8 --> F20
     F0 --> F0
-    F21 --> F8
+    F21 --> F5
 ```
 
 ## References
