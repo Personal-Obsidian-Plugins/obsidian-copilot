@@ -10,8 +10,6 @@ import { PLUS_UTM_MEDIUMS } from "@/constants";
 import { logError } from "@/logger";
 import { navigateToPlusPage, useIsPlusUser } from "@/plusUtils";
 import { updateSetting, useSettingsValue } from "@/settings/model";
-import { Docs4LLMParser } from "@/tools/FileParserManager";
-import { isRateLimitError } from "@/utils/rateLimitUtils";
 import { DropdownMenu, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import {
   AlertTriangle,
@@ -102,12 +100,7 @@ export async function reloadCurrentProject() {
     }
   } catch (error) {
     logError("Error reloading project context:", error);
-
-    // Check if this is a rate limit error and let the FileParserManager notice handle it
-    if (!isRateLimitError(error)) {
-      new Notice("Failed to reload project context. Check console for details.");
-    }
-    // If it's a rate limit error, don't show generic failure message - let the rate limit notice show
+    new Notice("Failed to reload project context. Check console for details.");
   } finally {
     setProjectLoading(false); // Stop loading indicator
   }
@@ -126,14 +119,11 @@ export async function forceRebuildCurrentProjectContext() {
       try {
         setProjectLoading(true); // Start loading indicator
         new Notice(
-          `Force rebuilding context for project: ${currentProject.name}... This will take some time and re-fetch all data.`,
+          `Force rebuilding context for project: ${currentProject.name}... This will take some time.`,
           10000 // Longer notice as this is a bigger operation
         );
 
         // Step 1: Completely clear all cached data for this project (in-memory and on-disk)
-        // Reset rate limit notice timer to allow showing notices during force rebuild
-        Docs4LLMParser.resetRateLimitNoticeTimer();
-
         await ProjectContextCache.getInstance().clearForProject(currentProject);
         new Notice(`Cache for project "${currentProject.name}" has been cleared.`);
 
@@ -151,12 +141,7 @@ export async function forceRebuildCurrentProjectContext() {
         }
       } catch (error) {
         logError("Error force rebuilding project context:", error);
-
-        // Check if this is a rate limit error and let the FileParserManager notice handle it
-        if (!isRateLimitError(error)) {
-          new Notice("Failed to force rebuild project context. Check console for details.");
-        }
-        // If it's a rate limit error, don't show generic failure message - let the rate limit notice show
+        new Notice("Failed to force rebuild project context. Check console for details.");
       } finally {
         setProjectLoading(false); // Stop loading indicator
       }
